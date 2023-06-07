@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div class="divider">
+    <div class="left">
+      <img id="profilepic" width="200" height="200" src="assets/profile.jpg" alt="Profile">
+    </div>
+    <div class="right">
+      <p>Hi! I'm Tiago Loriato, and welcome to my website!</p>
+      <p>
+        I'm currently a member of the <a href="https://spacy.io">spaCy</a> team
+        at <a href="https://explosion.ai">Explosion</a>. Outside of work, I do a lot of <a
+          href="https://ljvmiranda921.itch.io">game development</a>, <a href="https://adobo.bearblog.dev">reviews</a>,
+        and <a href="/gallery">retro
+          photography.</a>
+      </p>
+      <p>
+        Here, I write about my interests in natural language
+        processing, machine learning systems, and games&mdash;so grab a cup of coffee and feel
+        free to <a href="/start-here">look around!</a>
+      </p>
+    </div>
+  </div>
+
+
+  <!--
+  <div style="display:flex;justify-content:center;">
+    <iframe src="https://ljvmiranda.substack.com/embed" width="480" height="100"
+      style="border:0px solid #EEE; background:fffff8;" frameborder="0" scrolling="no"></iframe>
+  </div>
+  -->
+
+  &nbsp;
+
+  <hr>
+
+  &nbsp;
+
+  <h2>Recent Posts</h2>
+
+  <ul class="post-list">
+    {% assign mainPosts = site.posts | where: 'type', 'post' %}
+    {% for post in mainPosts limit:3 %}
+    <li>
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      <span class="post-meta">{{ post.date | date: date_format }} &verbar; {{ post.category | capitalize }}</span>
+
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+      <p style="color:#828282">{{ post.description }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
