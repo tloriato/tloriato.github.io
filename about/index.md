@@ -1,8 +1,8 @@
 ---
-layout: page
 title: About
-description: About page of Tiago Loriato - Blog 
-permalink: /about/
+permalink: "/about/"
+layout: page
+description: About page of Tiago Loriato - Blog
 ---
 
 Hi friends! My name is Tiago Loriato, and welcome to my website! 

@@ -1,8 +1,8 @@
 ---
-title: Highlights 
+title: Highlights
+permalink: "/start-here/"
 layout: page
-description: Start here 
-permalink: /start-here/
+description: Start here
 ---
 
 Here is a curated list of content, organized by topic.
