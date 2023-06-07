@@ -19,9 +19,14 @@ gem "minima", "~> 2.0"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-   gem "jekyll-feed", "~> 0.6"
-   gem "jekyll-seo-tag"
-end
+   gem "jekyll-feed"
+   gem "jekyll-mentions"
+   gem "webrick", "~> 1.8"
+   gem "jekyll-redirect-from"
+   gem "jekyll-sitemap"
+   gem "jekyll-avatar"
+   gem "jemoji"
+ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -34,3 +39,5 @@ gem "jekyll-sitemap"
 
 # Update some dependencies bsaed on depdendabot
 gem "nokogiri", ">= 1.13.4"
+
+gem "webrick", "~> 1.8"
