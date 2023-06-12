@@ -1,8 +1,8 @@
 ---
-layout: page
 title: Essays
+permalink: "/essay/"
+layout: page
 description: Thoughts about the journey from developer to adult.
-permalink: /essay/
 ---
 
 Those are my ~~attempts at~~ collection of thought pieces from my journey so far. Maybe a better word for it would be pieces of thoughts, though. 

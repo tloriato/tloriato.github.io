@@ -9,7 +9,7 @@ collections:
     title: Uploads
     output: true
 email: tloriatosimoes@gmail.com
-description: 'A collection of notes, researches, projects, and essays.'
+description: A collection of notes, researches, projects, and essays.
 baseurl: ''
 url: https://tloriato.github.io
 permalink: pretty

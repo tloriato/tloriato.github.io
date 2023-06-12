@@ -1,15 +1,15 @@
 ---
 title: Melody of Time
-description: An introspective prose about the journey from first employee of a startup
-date: 2023-05-20T09:34:11.070Z
-preview: /png/1_Z6sX1TrcSUX_ZNhh9hfWfQ.webp
-tags:
-  - post
+date: 2023-05-20 10:34:11 +01:00
 categories:
-  - essay
-slug: melody-time
+- essay
+tags:
+- post
+description: An introspective prose about the journey from first employee of a startup
+preview: "/png/1_Z6sX1TrcSUX_ZNhh9hfWfQ.webp"
 type: post
 ---
+
 _This article was initially published on Medium_
 
 ![](/assets/png/1_Z6sX1TrcSUX_ZNhh9hfWfQ.webp)
