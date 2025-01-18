@@ -117,12 +117,21 @@ The development of ZSAs began back in 2021 with the vision of paving the way for
 
 These innovations lay the groundwork for a comprehensive private DeFi ecosystem on Zcash, which could include private decentralized exchanges, automated market makers, lending platforms, stablecoins, and anonymous credentials for identification. QEDIT has already indicated interest in continuing to build those, and many other parties are sure to appear. Zcash Shielded Assets are an exciting first stepping stone in expanding Zcash's protocol usefulness to its users, unlocking several use-cases. 
 
+// TODO: Talk about RWA-s
+
+Decentralized Exchanges, often powered through AMMs, have allowed users to transact between different types of assets (real-world assets, stablecoins, meme coins, utility projects, native tokens) freely and frictionlessly. The top 10 spot DEXes jumped +159% YoY in trading volume during 2024, recording over U$1.8T in volumes - a significant number in all accounts, especially compared to Centralized Exchanges' U$6T (spot only). The biggest stock exchange in the world by volume, the New York Stock Exchange, sees U$16.8 trillion in annualized trading volume.
+
+// TODO: Add picture of DEXes growth
+
+These DEXes, however, are, for their large majority, exclusive and confined within their own blockchains, forbidding users to transact assets cross-chains. There are several projects leading the change towards that, and one of them is the Maya Protocol, which allows their users to perform native swaps across any integrated chains in a permissionless, on-chain, noncustodial, and secure way. Maya currently performs around 671,020 yearly swaps, with just shy of U$750 million in volume and over U$30 million in total value locked for instant liquidity purposes. 
+
+Maya is set to integrate Zcash within its protocol during the first half of 2025 and has been working with the Zashi team at ECC to have the native swaps integrated into the mobile wallet by launch. This integration will allow easy Zcash access from users of over nine chains, including Bitcoin and Ethereum, from over 5,000 different assets. Equally, this allows Zcash holders access to decentralized finance, like RWAs or stablecoins, from other chains while the ecosystem within Zcash evolves. 
+
+#### Zcash's Mission
+Despite eight years of setbacks and challenges, Zcash and its community remain unyielding, forging the next generation of financial tools to help people everywhere live, transact, and safeguard their wealth in true freedom. They are building a world in which our grandchildren will never be forced to flee their homelands in desperation nor see their political views or personal identities cast into the public domain, denying them the fundamental rights they deserve. Never before have so many ground-breaking projects converged on a single mission, and this renewed momentum will catapult Zcash forward, allowing its principles of freedom to reach those who need it most: all of us.
+
 
 --------------------
-TODO: Write below sections
-
-- ZSA's, Swaps, DEXes
-
 #### Zcash's Opportunity
 
 - talk about off-shore, and privacy-needs for bigger players, compaanies and governments
