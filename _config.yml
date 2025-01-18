@@ -31,7 +31,3 @@ highlighter: rouge
 future: false
 exclude:
 - vendor
-jekyll_analytics:
-  Plausible:
-    domain: 'tloriato.com'   # The domain configured in plausible
-    source: 'https://plausible.io/js/script.js' # The source of the javascript

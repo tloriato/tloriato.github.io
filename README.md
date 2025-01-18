@@ -1,9 +1,7 @@
 # tloriato.github.io
 
 This is the source code for my [blog](https://tloriato.github.io). It's a
-static website powered by [Jekyll](https://jekyllrb.com/) with site analytics
-done via [plausible.io](https://plausible.io/tloriato.github.io) (private,
-cookie-free and open source).
+static website powered by [Jekyll](https://jekyllrb.com/).
 
 ## Set-up
 
