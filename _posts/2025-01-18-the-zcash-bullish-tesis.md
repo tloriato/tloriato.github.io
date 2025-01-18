@@ -103,6 +103,8 @@ The reduction in computation needed to perform encrypted transactions by orders 
 // 2021 50.2m
 
 Another significant browser-related project with Zcash is the partnership between the Brave Browser, Electric Coin Co., and Filecoin Foundation to bring private payments and decentralized messaging features to its users while using the InterPlanetary File System (IPFS) for media transmissions. In December 2024, they confirmed that they are working on integrating private Zcash payments within their browser wallet. The latest number of monthly active users from Brave is from 2021, but in May 2022, they shared that Brave Search performed over 420 million queries for that month - over 52 times the query numbers from June 21.
+
+
 --------------------
 TODO: Write below sections
 
