@@ -20,73 +20,73 @@ Zcash implements two types of transactions and addresses, allowing its user to c
 ![](/assets/png/zcash-transaction-types.png){:width="350px"}
 {: refdef}
 
-- Transparent: These are the same as Bitcoin's. Blockchain records visibly all addresses and amounts involved in the transaction.
-- Shielded: These transactions are registered on the blockchain with no traces of the addresses or amounts that were part of them.
+- Transparent: These are the same as Bitcoin's. The blockchain records visibly all addresses and amounts involved in the transaction.
+- Shielded: These transactions are registered on the blockchain with no traces of the addresses or amounts involved.
 
 Users can also share "viewing keys" if they want to selectively disclose the contents of a shielded transaction to a party, such as a company, that wishes to provide evidence to a regulator.
 
 Many people mistakenly believe that Bitcoin payments are anonymous simply because pseudonymous addresses are used. However, the reality is that these transactions are permanently recorded. When you buy goods, pay someone, or interact with a business, the involved parties (and anyone monitoring those transactions) can use available tools to connect your addresses across past, present, and future transactions. 
 
-Zcash solves the privacy problem using the most advanced methods available, being at the forefront of these researches without overlooking the other use cases in which you might reveal yourself.
+Zcash solves the privacy problem using the most advanced methods available. It is at the forefront of these researches without overlooking the other use cases in which you might reveal yourself.
 
 #### Other Differences to Bitcoin
 There are several other differences between Zcash and Bitcoin, ranging from technical parameters to behavioral differences. 
 
 Nothing symbolizes this as strong as the existence of a Zcash Network Sustainability Mechanism. The actual name and mechanism details have changed over the years, but not the idea. It is a decentralized reserve of funds created slowly through a small portion of the mining rewards that will be used to fund the protocol's development and research. The idea is to avoid the "free-rider" problem that public goods experience, where no one is incentivized enough to work on it. 
 
-Other protocol differences include shorter block times than Bitcoin (75 seconds vs. 15 minutes) and twice as big blocks (2mb vs. 1mb). This difference alone is not enough to provide Zcash with the capabilities of becoming a network geared towards daily user payments. Still, it does give a smoother user experience in several cases.
+Other protocol differences include shorter block times than Bitcoin (75 seconds vs. 15 minutes) and twice as big blocks. This difference alone is insufficient to enable Zcash to become a network geared towards daily user payments. Still, it does give a smoother user experience in several cases.
 
-The last significant difference I would like to highlight is Zcash's rate of change. Contrary to a more ossified Bitcoin, Zcash still has several bold and ground-breaking initiatives being developed, which will be mentioned later in the document as future cataclysms. Depending on the year you read this article, this section may be heavily outdated—I hope so. 
+The last significant difference I would like to highlight is Zcash's rate of change. Contrary to a more ossified Bitcoin, Zcash is still developing several bold and ground-breaking initiatives, which will be mentioned later in the document as future cataclysms. Depending on the year you read this article, this section may be heavily outdated — I really hope so. 
 
 #### Where has it been so far?
 Zcash was launched in 2016, over eight years ago. Since then, it has achieved incredible world-class technical breakthroughs in its mission to bring privacy payments to the world: encrypted transactions became faster to create (40s to ~5s), and their memory requirements were reduced 100x (3GB to 0.03GB), allowing for a rising ecosystem of mobile wallets.
 
-What Zcash has not achieved, however, is material broader (non-enthusiasts) market recognition or an economic return for its supporters. This article argues why this won't be the case in the future, but first, we should see why Zcash's economic performance has historically fallen short until last year.
+What Zcash has not achieved, however, is material broader (non-enthusiasts) market recognition or an economic return for its supporters. This article argues why this won't be the case in the future, but first, we should see why Zcash's financial performance has historically fallen short until last year.
 
 {:refdef: style="text-align: center;"}
 ![](/assets/png/zcash-price.png){:width="350px"}
 {: refdef}
 
-First, early views within the community, including some from vocal leaders, minimized the importance of price, often stating, "The market is wrong." While there's merit in prioritizing long-term innovation over short-term speculation, this perspective overlooked a crucial nuance: price can act as a powerful Schelling point, attracting both attention and resources. By deprioritizing it, the project inadvertently limited broader investment interest, creating a feedback loop of diminished sentiment and adoption. Every Bitcoin bull cycle has attracted more users to the network, and Zcash has not been able to replicate this.
+First, early views within the community, including some from vocal leaders, minimized the importance of price, often stating, "The market is wrong." While there's merit in prioritizing long-term innovation over short-term speculation, this perspective overlooked a crucial nuance: price can act as a powerful Schelling point, attracting both attention and resources. The project inadvertently limited broader investment interest by deprioritizing it, creating a feedback loop of diminished sentiment and adoption. Every Bitcoin bull cycle has attracted more users to the network, and Zcash has been unable to replicate this.
 
 Second, the challenges of launching cutting-edge technology were inevitable for an early project like Zcash. The decision to replicate Bitcoin's emission schedule led to high early emission rates, which weighed on market prices. Technical growing pains—such as longer block times, evolving wallet support, and questions about feature completeness—further compounded skepticism around Zcash's real-world usability. Governance debates surrounding the network's funding model also created friction, at times draining the community's energy and hindering collaboration.
 
-Finally, attempts to resist centralization by discouraging specialized mining hardware (ASICs) came with unintended consequences. By favoring GPU mining, Zcash leaned heavily on a hobbyist mining community, whose operators often come with short-term profits and no attachment to the asset. This steady sell pressure weakened the token's price. Ironically, the effort to avoid centralization backfired on the project's economics, as large-scale ASIC miners typically have stronger incentives to hold and protect the assets they've invested in. Today, several of Bitcoin's biggest holders are publicly listed miners.
+Finally, attempts to resist centralization by discouraging specialized mining hardware (ASICs) came with unintended consequences. Zcash leaned heavily on a hobbyist mining community by favoring GPU mining, whose operators often come with short-term profits and no attachment to the asset. This steady sell pressure weakened the token's price. Ironically, the effort to avoid centralization backfired on the project's economics, as large-scale ASIC miners typically have more substantial incentives to hold and protect the assets they've invested in. Today, several of Bitcoin's biggest holders are publicly listed miners.
 
 Together, these factors fed a downward spiral: limited adoption by outside enthusiasts, eroding sentiment, and underwhelming returns for supporters.
 
-These factors, however, are circumstantial, and not permanent. This article is being written in 2025, while Zcash Community has never been more active, and privacy is more important than ever. Signs of change are emerging, suggesting that the future for Zcash is no longer just a possibility, but a story in the making.
+These factors, however, are circumstantial and not permanent. This article is being written in 2025, while the Zcash Community has never been more active, and privacy is more important than ever. Signs of change are emerging, suggesting that the future for Zcash is no longer just a possibility but a story in the making.
 
 
 ### The Bullish Case
-The bullish case for any asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize from. Zcash may finally be poisoned to benefit from this trifecta, with several already in-motion.
+The bullish case for any asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize. Zcash may finally be poisoned to benefit from this trifecta, with several already in motion.
 
 #### From Regulatory Uncertainty to Institutional Adoption
-Since Zcash's creation, crypto assets have gone through several battles around the world to obtain legitimacy. Those have pinnacled in a resounding victory with the newly elected US president, Donald Trump, tying the success of his term to Bitcoin's price and the recent record-breaking adoption of Bitcoin ETFs and other instruments by Wall Street. 
+Since Zcash's creation, crypto assets have fought several battles worldwide to obtain legitimacy. Those have pinnacled in a resounding victory with the newly elected US president, Donald Trump, tying the success of his term to Bitcoin's price and the recent record-breaking adoption of Bitcoin ETFs and other instruments by Wall Street. 
 
-Once at risk of being banned, marginalized, or excluded from the World's Financial System, Crypto is now being discussed by every wealth advisor in the world, central bank and several public companies. Zcash historically has always been an amplified risk due to its privacy capabilities, especially at times when all crypto's liquidity was concentrated on cryptocurrency exchanges trying to avoid too much regulatory scrutinity. 
+Once at risk of being banned, marginalized, or excluded from the World's Financial System, Crypto is now being discussed by every wealth advisor in the world, the central bank, and several public companies. Zcash has historically been an amplified risk due to its privacy capabilities, especially at times when all crypto's liquidity was concentrated on cryptocurrency exchanges, trying to avoid too much regulatory scrutiny. 
 
-It's a continuous humanity achievement that Zcash has not stood still in this regard compared to Bitcoin. The coin has continued to defend its position as supporting the US's fourth amendment, engaging actively with regulators all over the world, especially in Washington, DC. The recently hosted DC Privacy Summit, an event focused on "the intersection of decentralized networks, advanced cryptography, and the law," which was sponsored by Coinbase, counted with the presence of multiple lawmakers, White House staff, and industry players. In its agenda, Zcash is mentioned, with presentations from Zooko Wilcox, one of Zcash's founders, and Josh Swihart, CEO of the Electric Coin Company.
+It's a continuous humanity achievement that Zcash has not stood still in this regard compared to Bitcoin. The coin has continued to defend its position by supporting the US's Fourth Amendment and engaging with regulators worldwide, especially in Washington, DC. The recently hosted DC Privacy Summit, an event focused on "the intersection of decentralized networks, advanced cryptography, and the law," sponsored by Coinbase, counted with multiple lawmakers, White House staff, and industry players. In its agenda, Zcash is mentioned, with presentations from Zooko Wilcox, one of Zcash's founders, and Josh Swihart, CEO of the Electric Coin Company.
 
 The Electric Coin Company has launched and supported the development of Zcash since 2016, being one of the entities funded by the Zcash Network Sustainability Fund. Paul Brigner, one of the event's organizers and then Head of Coinbase Insitute, has since re-joined ECC as Vice President of Strategic Alliances, where he is expected to solidify Zcash's institutional position with the government and companies.
 
-Zcash continues to be listed and supported by Coinbase, the biggest and most connected US-regulated crypto exchange, with its ZEC/USD volume growing doubling between 2024 H2 and 2023H2. Zcash is also available as a financial instrument through ZCSH, a Grayscale Fund that currently holds 394k (U$22 million) and also saw its volume soar over 300% between 2023 and 2024. 
+Zcash continues to be listed and supported by Coinbase, the biggest and most connected US-regulated crypto exchange. Its ZEC/USD volume doubled between 2024 H2 and 2023H2. Zcash is also available as a financial instrument through ZCSH, a Grayscale Fund that currently holds 394k (U$22 million) and saw its volume soar over 300% between 2023 and 2024. 
 
 #### Entering Economic Stability and Great Promises Ahead
 The volume (and, in turn, interest) rise in Zcash in the second half of 2024 is not by chance. Despite all the expectations we will see here, one of them has been expected since its launch: Zcash's second halving. 
 
 ![](/assets/png/zcash-emission.png)
 
-Like Bitcoin, Zcash began its first year with an annualized inflation rate of 48%. During the first halving, after 4 years of life, the pace of inflation dropped from 25%/yr to 12.5%/yr. In November 2024, the second one of these events happened, further lowering the 8.3%/yr to the current 4.2%/yr - the same inflation US has experienced in the previous year.
+Like Bitcoin, Zcash began its first year with an annualized inflation rate of 48%. During the first halving, after four years of life, the pace of inflation dropped from 25 %/yr to 12.5 %/yr. In November 2024, the second one of these events happened, further lowering the 8.3%/yr to the current 4.2%/yr—the same inflation the US experienced in the previous year.
 
-This signanficatly lowers the dillution of existing holders, and the ability for newly mined coins to impact the network price once they hit the market, as we discussed above. The next one, in 2028, is set to take Zcash's emission curve below 2.7%. 
+This significantly lowers the dilution of existing holders and the ability of newly mined coins to impact the network price once they hit the market, as we discussed above. The next one, in 2028, is set to lower Zcash's emission curve below 2.7%. 
 
-This is not the only significant development towards Zcash's economic model. Shielded Labs, a recently created US company, which boosts the already mentioned Zooko Wilcox as one of its members, has started developing the first implementation of "Crosslink", a mechanism that would allow transitioning Zcash to a hybrid PoS, before a full switch. Proof-of-Stake would potentially bring a multitude of benefits, with the two crucial ones to highlight is the reduction of mining costs (and, in turn, the selling pressure that comes with it) and the ability for average Zcash holders to participate in the network consensus and capture the new emissions through staking. 
+This is not the only significant development related to Zcash's economic model. Shielded Labs, a recently created US company, which boosts the already mentioned Zooko Wilcox as one of its members, has started developing the first implementation of "Crosslink," a mechanism that would allow transitioning Zcash to a hybrid PoS, before a complete switch. Proof-of-Stake would potentially bring a multitude of benefits, with the two crucial ones to highlight is the reduction of mining costs (and, in turn, the selling pressure that comes with it) and the ability for average Zcash holders to participate in the network consensus and capture the new emissions through staking. 
 
 #### Ecosystem Maturity
-The growing pains that have previously haunted Zcash so far have finally started to show results. Much more besides technical advancements already mentioned, Zcash has now a wave of user-impacting releases in progress. 
+The growing pains that have haunted Zcash so far have finally started to show results. In addition to the technical advancements already mentioned, Zcash is now in progress with a wave of user-impacting releases. 
 
-After several years of trying to work with older hardware wallet providers (Trezor and Ledger: shame on you) to bring the capability for its users to store ZEC privately, with the convenience and the security of these gadgets, it has been Keystone Hardware Wallet that jumped ahead in launching this. Now, long-term investors are able to shield their Zcash holdings without concerns, facilitating usage, storage, and inheritance. 
+After several years of trying to work with older hardware wallet providers (Trezor and Ledger: shame on you) to bring the capability for its users to store ZEC privately, with the convenience and security of these gadgets, Keystone Hardware Wallet jumped ahead in launching this. Now, long-term investors can shield their Zcash holdings without concerns, facilitating usage, storage, and inheritance. 
 
 <style>
 @media (min-width: 768px) {
@@ -113,9 +113,9 @@ After several years of trying to work with older hardware wallet providers (Trez
 
 ![](/assets/png/zcash-shielded-balance-eoy.png){:.float-image-right}
 
-It gets better. The release of this hardware wallet came integrated with Zashi, a new Zcash Mobile wallet developed by ECC, which is one of the many now stable and existing Zcash wallets present across all platforms. Zashi wallet comes also integrated with Coinbase to allow newcomers to purchase Zcash straight from their mobile using ApplePay/GooglePay and Flexa, allowing them to purchase physical goods in thousands of merchants across the US, Canada, and El Salvador. 
+It gets better. The release of this hardware wallet came integrated with Zashi, a new Zcash Mobile wallet developed by ECC, one of the many stable and existing Zcash wallets present across all platforms. The Zashi wallet is also integrated with Coinbase to allow newcomers to purchase Zcash straight from their mobile using ApplePay/GooglePay and Flexa, allowing them to buy physical goods in thousands of merchants across the US, Canada, and El Salvador. 
 
-These developments have allowed the expansion of ZECs being stored in shielded, private addresses, with an ever-great pace in the last month of 2024 and probably a bigger one once Keystone is in the hands of more people, or Ledger and Trezor decides to take their user's privacy seriously. Which is doubtful by their constant data breaches. 
+These developments have allowed the expansion of ZECs stored in shielded, private addresses, with an ever-great pace in the last month of 2024 and probably a bigger one once Keystone is in the hands of more people or Ledger and Trezor decide to take their users' privacy seriously, which is doubtful given their constant data breaches. 
 
 The reduction in computation needed to perform encrypted transactions by orders of magnitude since 2016 has also been poisoned to unblock another wallet frontier: browser wallets. On September 26, 2024, the ChainSafe team successfully performed the world's first Zcash-shielded transaction from a browser. The WebZjs project is aimed to be production-ready in February.
 
@@ -124,11 +124,11 @@ The reduction in computation needed to perform encrypted transactions by orders 
 Another significant browser-related project with Zcash is the partnership between the Brave Browser, Electric Coin Co., and Filecoin Foundation to bring private payments and decentralized messaging features to its users while using the InterPlanetary File System (IPFS) for media transmissions. In December 2024, they confirmed that they are working on integrating private Zcash payments within their browser wallet. The latest number of monthly active users from Brave is from 2021, but in May 2022, they shared that Brave Search performed over 420 million queries for that month - over 52 times the query numbers from June 21.
 
 #### Significant Innovations
-We spoke before about Zcash's intention to transition from a Proof-of-Work mechanism to a hybrid and then finally full Proof-of-Stake. While the full details are still being worked on, and these changes are major, this project is far from the only one underway that will bring significant innovations to the protocol.
+We discussed Zcash's intention to transition from a Proof-of-Work mechanism to a hybrid and finally full Proof-of-Stake. While the full details are still being worked on, and these changes are significant, this project is far from the only one underway that will bring considerable innovations to the protocol.
 
-The upcoming Network Upgrade 7 (NU7) is set to introduce an exciting feature to Zcash: Zcash Shielded Assets (ZSA), which is currently being developed by Qedit. This upgrade is expected to go live during 3Q2025. With ZSAs, users will have the ability to create their own private, shielded assets on the Zcash network, much like Ethereum's ERC-20 tokens.
+The upcoming Network Upgrade 7 (NU7) is set to introduce an exciting feature to Zcash: Zcash Shielded Assets (ZSA), which Qedit is currently developing.  This upgrade is expected to go live during 3Q2025. With ZSAs, users will be able to create their own private, shielded assets on the Zcash network, much like Ethereum's ERC-20 tokens.
 
-The development of ZSAs began back in 2021 with the vision of paving the way for private DeFi and expanding what Zcash can offer. It aims to provide:
+The development of ZSAs began in 2021 with the vision of paving the way for private DeFi and expanding what Zcash can offer. It aims to provide:
 
 - A permissionless issuance mechanism that enables the creation of native shielded assets, giving users control over minting various asset types, whether fungible or non-fungible, public or private supply.
 - A transfer mechanism that allows for the movement of multiple asset types within a single transaction while still maintaining a unified anonymity pool for all assets involved.
@@ -142,12 +142,12 @@ Decentralized Exchanges, often powered through AMMs, have allowed users to trans
 
 // TODO: Add picture of DEXes growth
 
-These DEXes, however, are, for their large majority, exclusive and confined within their own blockchains, forbidding users to transact assets cross-chains. There are several projects leading the change towards that, and one of them is the Maya Protocol, which allows their users to perform native swaps across any integrated chains in a permissionless, on-chain, noncustodial, and secure way. Maya currently performs around 671,020 yearly swaps, with just shy of U$750 million in volume and over U$30 million in total value locked for instant liquidity purposes. 
+These DEXes, however, are, for their large majority, exclusive and confined within their blockchains, forbidding users to transact assets cross-chains. Several projects are leading the change towards that, and one of them is the Maya Protocol, which allows their users to perform native swaps across any integrated chains in a permissionless, on-chain, noncustodial, and secure way. Maya currently performs around 671,020 yearly swaps, shy of U$750 million in volume and over U$30 million in total value locked for instant liquidity. 
 
 Maya is set to integrate Zcash within its protocol during the first half of 2025 and has been working with the Zashi team at ECC to have the native swaps integrated into the mobile wallet by launch. This integration will allow easy Zcash access from users of over nine chains, including Bitcoin and Ethereum, from over 5,000 different assets. Equally, this allows Zcash holders access to decentralized finance, like RWAs or stablecoins, from other chains while the ecosystem within Zcash evolves. 
 
 #### Zcash's Mission
-Despite eight years of setbacks and challenges, Zcash and its community remain unyielding, forging the next generation of financial tools to help people everywhere live, transact, and safeguard their wealth in true freedom. They are building a world in which our grandchildren will never be forced to flee their homelands in desperation nor see their political views or personal identities cast into the public domain, denying them the fundamental rights they deserve. Never before have so many ground-breaking projects converged on a single mission, and this renewed momentum will catapult Zcash forward, allowing its principles of freedom to reach those who need it most: all of us.
+Despite eight years of setbacks and challenges, Zcash and its community remain unyielding, forging the next generation of financial tools to help people everywhere live, transact, and safeguard their wealth in true freedom. They are building a world where our grandchildren will never be forced to flee their homelands in desperation nor see their political views or personal identities cast into the public domain, denying them the fundamental rights they deserve. Never before have so many ground-breaking projects converged on a single mission, and this renewed momentum will catapult Zcash forward, allowing its principles of freedom to reach those who need it most: all of us.
 
 
 --------------------
