@@ -9,7 +9,7 @@ tags: []
 type: post    # Change from array to single value
 ---
 ![](/assets/png/zcash-primary-black-white-logo.png)
-Zcash is a decentralized cryptocurrency that shares many properties with Bitcoin. They are both distributed and trustless networks that enable secure, peer-to-peer online transactions while following an economic model of a 21,000,000 unit limit with an emission rate that halves every 4 years. The main difference, albeit far from the only one, is that Zcash supports fully private, untraceable transactions. While Bitcoin's openness broadcasts and records eternally transactions often linked to your identity, Zcash allows users to keep their affairs private.
+Zcash is a decentralized cryptocurrency that shares many properties with Bitcoin. They are both distributed and trustless networks that enable secure, peer-to-peer online transactions while following an economic model of a 21,000,000 unit limit with an emission rate that halves every 4 years. The main difference, albeit far from the only one, is that Zcash supports fully private, untraceable transactions. While Bitcoin's openness broadcasts and records eternally transactions that are linkable to your identity, Zcash allows users to keep their affairs private.
 
 #### Zcash's Privacy
 In August 2010, Satoshi Nakamoto, the anonymous creator of Bitcoin, stated, "If a solution was found, a much better, easier, and more convenient implementation of Bitcoin would be possible" in response to a question about using zero-knowledge proofs to enhance Bitcoin's privacy. These zero-knowledge proofs were explored in a research initiative known as Zerocash, which began in 2013 and ultimately led to the launch of Zcash in 2016.
