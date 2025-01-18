@@ -16,10 +16,12 @@ In August 2010, Satoshi Nakamoto, the anonymous creator of Bitcoin, stated, "If 
 
 Zcash implements two types of transactions and addresses, allowing its user to choose the one appropriate for the moment:
 
+{:refdef: style="text-align: center;"}
+![](/assets/png/zcash-transaction-types.png){:width="350px"}
+{: refdef}
+
 - Transparent: These are the same as Bitcoin's. Blockchain records visibly all addresses and amounts involved in the transaction.
 - Shielded: These transactions are registered on the blockchain with no traces of the addresses or amounts that were part of them.
-
-// TODO: Add picture of types of transactions
 
 Users can also share "viewing keys" if they want to selectively disclose the contents of a shielded transaction to a party, such as a company, that wishes to provide evidence to a regulator.
 
@@ -41,7 +43,9 @@ Zcash was launched in 2016, over eight years ago. Since then, it has achieved in
 
 What Zcash has not achieved, however, is material broader (non-enthusiasts) market recognition or an economic return for its supporters. This article argues why this won't be the case in the future, but first, we should see why Zcash's economic performance has historically fallen short until last year.
 
-// TODO: Add a picture of Zcash crashing
+{:refdef: style="text-align: center;"}
+![](/assets/png/zcash-price.png){:width="350px"}
+{: refdef}
 
 First, early views within the community, including some from vocal leaders, minimized the importance of price, often stating, "The market is wrong." While there's merit in prioritizing long-term innovation over short-term speculation, this perspective overlooked a crucial nuance: price can act as a powerful Schelling point, attracting both attention and resources. By deprioritizing it, the project inadvertently limited broader investment interest, creating a feedback loop of diminished sentiment and adoption. Every Bitcoin bull cycle has attracted more users to the network, and Zcash has not been able to replicate this.
 
@@ -84,23 +88,38 @@ The growing pains that have previously haunted Zcash so far have finally started
 
 After several years of trying to work with older hardware wallet providers (Trezor and Ledger: shame on you) to bring the capability for its users to store ZEC privately, with the convenience and the security of these gadgets, it has been Keystone Hardware Wallet that jumped ahead in launching this. Now, long-term investors are able to shield their Zcash holdings without concerns, facilitating usage, storage, and inheritance. 
 
-It gets better. The release of this hardware wallet came integrated with Zashi, a new Zcash Mobile wallet developed by ECC, which is one of the many now stable and existing Zcash wallets present across all platforms. Zashi wallet comes also integrated with Coinbase to allow newcomers to purchase Zcash straight from their mobile using ApplePay/GooglePay and Flexa, allowing them to purchase physical goods in thousands of merchants across the US, Canada, and El Salvador. 
+<style>
+@media (min-width: 768px) {
+  .float-image-right {
+    float: right;
+    margin: 0 0 10px 10px;
+    width: 350px;
+  }
+  .float-image-left {
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 220px;
+  }
+}
+@media (max-width: 767px) {
+  .float-image-right, .float-image-left {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 350px;
+  }
+}
+</style>
 
-// TODO: Picture of the shielded pool - EOY balance
-// 2020: 700,000
-// 2021: 824,000
-// 2022: 1,000,000
-// 2023: 1,280,000
-// 2024: 1,970,000
+![](/assets/png/zcash-shielded-balance-eoy.png){:.float-image-right}
+
+It gets better. The release of this hardware wallet came integrated with Zashi, a new Zcash Mobile wallet developed by ECC, which is one of the many now stable and existing Zcash wallets present across all platforms. Zashi wallet comes also integrated with Coinbase to allow newcomers to purchase Zcash straight from their mobile using ApplePay/GooglePay and Flexa, allowing them to purchase physical goods in thousands of merchants across the US, Canada, and El Salvador. 
 
 These developments have allowed the expansion of ZECs being stored in shielded, private addresses, with an ever-great pace in the last month of 2024 and probably a bigger one once Keystone is in the hands of more people, or Ledger and Trezor decides to take their user's privacy seriously. Which is doubtful by their constant data breaches. 
 
 The reduction in computation needed to perform encrypted transactions by orders of magnitude since 2016 has also been poisoned to unblock another wallet frontier: browser wallets. On September 26, 2024, the ChainSafe team successfully performed the world's first Zcash-shielded transaction from a browser. The WebZjs project is aimed to be production-ready in February.
 
-// TODO: Put an image of Brave Monthly Active Users Growth
-// 2019: 11.2m
-// 2020: 24.1m
-// 2021 50.2m
+![](/assets/png/zcash-brave-users.png){:.float-image-left}
 
 Another significant browser-related project with Zcash is the partnership between the Brave Browser, Electric Coin Co., and Filecoin Foundation to bring private payments and decentralized messaging features to its users while using the InterPlanetary File System (IPFS) for media transmissions. In December 2024, they confirmed that they are working on integrating private Zcash payments within their browser wallet. The latest number of monthly active users from Brave is from 2021, but in May 2022, they shared that Brave Search performed over 420 million queries for that month - over 52 times the query numbers from June 21.
 
