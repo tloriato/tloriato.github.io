@@ -104,6 +104,19 @@ The reduction in computation needed to perform encrypted transactions by orders 
 
 Another significant browser-related project with Zcash is the partnership between the Brave Browser, Electric Coin Co., and Filecoin Foundation to bring private payments and decentralized messaging features to its users while using the InterPlanetary File System (IPFS) for media transmissions. In December 2024, they confirmed that they are working on integrating private Zcash payments within their browser wallet. The latest number of monthly active users from Brave is from 2021, but in May 2022, they shared that Brave Search performed over 420 million queries for that month - over 52 times the query numbers from June 21.
 
+#### Significant Innovations
+We spoke before about Zcash's intention to transition from a Proof-of-Work mechanism to a hybrid and then finally full Proof-of-Stake. While the full details are still being worked on, and these changes are major, this project is far from the only one underway that will bring significant innovations to the protocol.
+
+The upcoming Network Upgrade 7 (NU7) is set to introduce an exciting feature to Zcash: Zcash Shielded Assets (ZSA), which is currently being developed by Qedit. This upgrade is expected to go live during 3Q2025. With ZSAs, users will have the ability to create their own private, shielded assets on the Zcash network, much like Ethereum's ERC-20 tokens.
+
+The development of ZSAs began back in 2021 with the vision of paving the way for private DeFi and expanding what Zcash can offer. It aims to provide:
+
+- A permissionless issuance mechanism that enables the creation of native shielded assets, giving users control over minting various asset types, whether fungible or non-fungible, public or private supply.
+- A transfer mechanism that allows for the movement of multiple asset types within a single transaction while still maintaining a unified anonymity pool for all assets involved.
+- A secure one-way bridge connecting to other blockchains, facilitating the import of existing assets into the Zcash ecosystem.
+
+These innovations lay the groundwork for a comprehensive private DeFi ecosystem on Zcash, which could include private decentralized exchanges, automated market makers, lending platforms, stablecoins, and anonymous credentials for identification. QEDIT has already indicated interest in continuing to build those, and many other parties are sure to appear. Zcash Shielded Assets are an exciting first stepping stone in expanding Zcash's protocol usefulness to its users, unlocking several use-cases. 
+
 
 --------------------
 TODO: Write below sections
