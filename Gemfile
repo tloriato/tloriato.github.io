@@ -25,7 +25,6 @@ group :jekyll_plugins do
    gem "jekyll-sitemap"
    gem "jekyll-avatar"
    gem "jemoji"
-   gem "jekyll-admin"
  end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -34,9 +33,11 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # HTML Proofer
 gem "html-proofer"
 
-# Add sitemap
-gem "jekyll-sitemap"
-
 # Update some dependencies bsaed on depdendabot
 gem "nokogiri", ">= 1.13.4"
-gem "webrick", "~> 1.8"
+gem 'rack', '~> 2.2'
+gem 'rack-protection', '~> 2.0'
+gem 'sinatra', '~> 2.0'
+gem 'jekyll-admin', '>= 0.11.1'
+gem "webrick"
+gem 'jekyll-analytics'

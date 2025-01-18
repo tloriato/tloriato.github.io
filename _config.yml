@@ -16,12 +16,14 @@ permalink: pretty
 social_sites:
   github: tloriato
   twitter: tiagoloriato
+  linkedin: tloriato
 markdown: kramdown
 theme: minima
 plugins:
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-sitemap
+- jekyll-analytics
 kramdown:
   input: GFM
   parse_block_html: true
@@ -29,3 +31,7 @@ highlighter: rouge
 future: false
 exclude:
 - vendor
+jekyll_analytics:
+  Plausible:
+    domain: 'tloriato.com'   # The domain configured in plausible
+    source: 'https://plausible.example.com/js/plausible.js' # The source of the javascript

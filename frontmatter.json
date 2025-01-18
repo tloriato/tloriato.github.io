@@ -48,10 +48,6 @@
   "frontMatter.content.publicFolder": "assets",
   "frontMatter.content.pageFolders": [
     {
-      "title": "notebook",
-      "path": "[[workspace]]/notebook/_posts"
-    },
-    {
       "title": "research",
       "path": "[[workspace]]/research"
     },
@@ -62,8 +58,13 @@
     {
       "title": "essay",
       "path": "[[workspace]]/essay"
+    },
+    {
+      "title": "posts",
+      "path": "[[workspace]]/_posts"
     }
   ],
   "frontMatter.taxonomy.tags": [],
-  "frontMatter.taxonomy.categories": []
+  "frontMatter.taxonomy.categories": [],
+  "frontMatter.dashboard.openOnStart": true
 }
