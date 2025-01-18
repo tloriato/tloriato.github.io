@@ -95,10 +95,17 @@ It gets better. The release of this hardware wallet came integrated with Zashi, 
 
 These developments have allowed the expansion of ZECs being stored in shielded, private addresses, with an ever-great pace in the last month of 2024 and probably a bigger one once Keystone is in the hands of more people, or Ledger and Trezor decides to take their user's privacy seriously. Which is doubtful by their constant data breaches. 
 
+The reduction in computation needed to perform encrypted transactions by orders of magnitude since 2016 has also been poisoned to unblock another wallet frontier: browser wallets. On September 26, 2024, the ChainSafe team successfully performed the world's first Zcash-shielded transaction from a browser. The WebZjs project is aimed to be production-ready in February.
+
+// TODO: Put an image of Brave Monthly Active Users Growth
+// 2019: 11.2m
+// 2020: 24.1m
+// 2021 50.2m
+
+Another significant browser-related project with Zcash is the partnership between the Brave Browser, Electric Coin Co., and Filecoin Foundation to bring private payments and decentralized messaging features to its users while using the InterPlanetary File System (IPFS) for media transmissions. In December 2024, they confirmed that they are working on integrating private Zcash payments within their browser wallet. The latest number of monthly active users from Brave is from 2021, but in May 2022, they shared that Brave Search performed over 420 million queries for that month - over 52 times the query numbers from June 21.
 --------------------
 TODO: Write below sections
 
-- ZEC.JS wallet on the browser, and several mobile wallets and Brave Browser support.
 - ZSA's, Swaps, DEXes
 
 #### Zcash's Opportunity
