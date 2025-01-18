@@ -34,4 +34,4 @@ exclude:
 jekyll_analytics:
   Plausible:
     domain: 'tloriato.com'   # The domain configured in plausible
-    source: 'https://plausible.example.com/js/plausible.js' # The source of the javascript
+    source: 'https://plausible.io/js/script.js' # The source of the javascript
