@@ -136,7 +136,7 @@ The development of ZSAs began in 2021 with the vision of paving the way for priv
 
 These innovations lay the groundwork for a comprehensive private DeFi ecosystem on Zcash, which could include private decentralized exchanges, automated market makers, lending platforms, stablecoins, and anonymous credentials for identification. QEDIT has already indicated interest in continuing to build those, and many other parties are sure to appear. Zcash Shielded Assets are an exciting first stepping stone in expanding Zcash's protocol usefulness to its users, unlocking several use-cases. 
 
-// TODO: Talk about RWA-s
+Today, U$16.82 billion in real-world assets (RWAs), excluding stablecoins, are deployed from 111 issuers across different chains. These real-world assets represent the tokenization of tangible assets from the physical world. They include digital securities from capital markets, real estate, art, commodities, private credit, and even stocks. These assets are ideal for leveraging the privacy features of Zcash through Zcash Shielded Assets, allowing everyone to hold extremely valuable assets digitally, securely, and anonymously. 
 
 Decentralized Exchanges, often powered through AMMs, have allowed users to transact between different types of assets (real-world assets, stablecoins, meme coins, utility projects, native tokens) freely and frictionlessly. The top 10 spot DEXes jumped +159% YoY in trading volume during 2024, recording over U$1.8T in volumes - a significant number in all accounts, especially compared to Centralized Exchanges' U$6T (spot only). The biggest stock exchange in the world by volume, the New York Stock Exchange, sees U$16.8 trillion in annualized trading volume.
 
