@@ -80,9 +80,17 @@ Where Bitcoin has a head-start on Zcash is its established history. Its launch a
 #### Zcash's Opportunity
 Zcash holds a strong position in the expanding offshore market, which is estimated to be worth tens of trillions of dollars. The IMF reports that individuals have about $7 trillion in offshore accounts, while the Tax Justice Network estimates that $21 trillion to $32 trillion is hidden in tax havens. Approximately $4 trillion of US wealth is held offshore, and multinational firms have invested around $12 trillion in empty corporate shells.
 
-Zcash's shielded transactions differentiate it from more transparent cryptocurrencies like Bitcoin and Ethereum. In private equity—once estimated at $10 trillion—Zcash may draw interest from those desiring privacy and the benefits of a decentralized network. If the demand for fully private crypto-assets grows, Zcash's market capitalization could rise significantly.
-
 Consider MicroStrategy's public Bitcoin treasury, which invites perpetual scrutiny and front-running by eager speculators. By contrast, Zcash's inherent privacy minimizes such vulnerabilities, allowing organizations to transact and store wealth away from prying eyes. As more entities embrace crypto and DeFi, Zcash stands primed to become a keystone for privacy-focused services—bolstering its standing as both a secure store of value and a versatile payment currency.
+
+As of 2025, Zcash's market capitalization stands at $807 Million, a fraction compared to Bitcoin's $2 Trillion and Gold's $18 Trillion. The entire cryptocurrency sector is valued at $3.81 Trillion, while offshore accounts tracked by the IMF amount to $7 Trillion. These figures highlight the massive growth potential for Zcash in capturing even small portions of these established markets.
+
+| Scenario  (Crypto + Gold + Offshore)                         | ZEC Market Cap | Implied Price per ZEC (16M) | Gain vs. Current ($51) |
+|-----------------------------------|---------------------|---------------------------|----------------------|
+| 1%  | $289B              | $18,063                  | ~354×                |
+| 3%  | $865B              | $54,063                  | ~1,060×              |
+| 5%  | $1.44T            | $90,063                  | ~1,766×              |
+
+Even within the cryptocurrency market itself, the opportunity for Zcash is staggering. What started as a technology to decentralize control and empower individuals through financial freedom has grown into a $3.1 trillion industry. Yet remarkably, privacy-focused projects account for less than $7 billion of this total (0.23%). This profound disconnect between crypto's founding principles of individual sovereignty and the actual capital allocation toward privacy solutions represents both a market inefficiency and an enormous opportunity. Zcash is uniquely positioned to capture this value gap in 2025 and beyond, through its technical maturity, growing institutional acceptance, and the catalysts we'll explore further in this article.
 
 #### Where has it been so far?
 Zcash was launched in 2016, over eight years ago. Since then, it has achieved incredible world-class technical breakthroughs in its mission to bring privacy payments to the world: encrypted transactions became faster to create (40s to ~5s), and their memory requirements were reduced 100x (3GB to 0.03GB), allowing for a rising ecosystem of mobile wallets.
@@ -99,9 +107,9 @@ Second, the challenges of launching cutting-edge technology were inevitable for 
 
 Finally, attempts to resist centralization by discouraging specialized mining hardware (ASICs) came with unintended consequences. Zcash leaned heavily on a hobbyist mining community by favoring GPU mining, whose operators often come with short-term profits and no attachment to the asset. This steady sell pressure weakened the token's price. Ironically, the effort to avoid centralization backfired on the project's economics, as large-scale ASIC miners typically have more substantial incentives to hold and protect the assets they've invested in. Today, several of Bitcoin's biggest holders are publicly listed miners.
 
-Together, these factors fed a downward spiral: limited adoption by outside enthusiasts, eroding sentiment, and underwhelming returns for supporters.
+Together, these factors fed a downward spiral: limited adoption by outside enthusiasts, eroding sentiment, and underwhelming returns for supporters. However, they are circumstantial and not permanent. 
 
-These factors, however, are circumstantial and not permanent. This article is being written in 2025, while the Zcash Community has never been more active, and privacy is more important than ever. Signs of change are emerging, suggesting that the future for Zcash is no longer just a possibility but a story in the making.
+This article is being written in 2025, while the Zcash Community has never been more active, and privacy is more important than ever. Signs of change are emerging, suggesting that the future for Zcash is no longer just a possibility but a story in the making.
 
 
 ### The Future is Now
@@ -181,11 +189,11 @@ The development of ZSAs [began in 2021](https://forum.zcashcommunity.com/t/a-pro
 
 These innovations lay the groundwork for a comprehensive private DeFi ecosystem on Zcash, which could include private decentralized exchanges, automated market makers, lending platforms, stablecoins, and anonymous credentials for identification. QEDIT has already indicated interest in continuing to build those, and many other parties are sure to appear. Zcash Shielded Assets are an exciting first stepping stone in expanding Zcash's protocol usefulness to its users, unlocking several use-cases. 
 
-Today, U$16.82 billion in real-world assets (RWAs), excluding stablecoins, are deployed from 111 issuers across different chains. These real-world assets represent the tokenization of tangible assets from the physical world. They include digital securities from capital markets, real estate, art, commodities, private credit, and even stocks. These assets are ideal for leveraging the privacy features of Zcash through Zcash Shielded Assets, allowing everyone to hold extremely valuable assets digitally, securely, and anonymously. 
+![](/assets/png/zcash-rwa.png)
+
+Today, U$16.82 billion in real-world assets (RWAs), excluding stablecoins, are deployed from 111 issuers across different chains. These real-world assets represent the tokenization of tangible assets from the physical world. They include digital securities from capital markets, real estate, art, commodities, private credit, and even stocks. These assets are ideal for leveraging the privacy features of Zcash through Zcash Shielded Assets, allowing everyone to hold extremely valuable assets digitally, securely, and anonymously. ZSAs could unlock trillions in tokenized RWAs through its privacy features.
 
 Decentralized Exchanges, often powered through AMMs, have allowed users to transact between different types of assets (real-world assets, stablecoins, meme coins, utility projects, native tokens) freely and frictionlessly. The top 10 spot DEXes [jumped +159% YoY](https://assets.coingecko.com/reports/2024/CoinGecko-2024-Annual-Crypto-Industry-Report.pdf) in trading volume during 2024, recording over U$1.8T in volumes - a significant number in all accounts, especially compared to Centralized Exchanges' U$6T (spot only). The [biggest](https://en.wikipedia.org/wiki/List_of_major_stock_exchanges) stock exchange in the world by volume, the New York Stock Exchange, sees U$16.8 trillion in annualized trading volume.
-
-// TODO: Add picture of DEXes growth
 
 These DEXes, however, are, for their large majority, exclusive and confined within their blockchains, forbidding users to transact assets cross-chains. Several projects are leading the change towards that, and one of them is the Maya Protocol, which allows their users to perform native swaps across any integrated chains in a permissionless, on-chain, noncustodial, and secure way. [Maya currently performs](https://www.mayascan.org/stats) around 671,020 yearly swaps, shy of U$750 million in volume and over U$30 million in total value locked for instant liquidity. 
 
