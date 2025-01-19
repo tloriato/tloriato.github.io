@@ -36,7 +36,53 @@ Nothing symbolizes this as strong as the existence of a Zcash Network Sustainabi
 
 Other protocol differences include shorter block times than Bitcoin (75 seconds vs. 15 minutes) and twice as big blocks. This difference alone is insufficient to enable Zcash to become a network geared towards daily user payments. Still, it does give a smoother user experience in several cases.
 
-The last significant difference I would like to highlight is Zcash's rate of change. Contrary to a more ossified Bitcoin, Zcash is still developing several bold and ground-breaking initiatives, which will be mentioned later in the document as future cataclysms. Depending on the year you read this article, this section may be heavily outdated — I really hope so. 
+The last significant difference I would like to highlight is Zcash's rate of change. Contrary to a more ossified Bitcoin, Zcash is still developing several bold and ground-breaking initiatives, which will be mentioned later in the document as future cataclysms. Depending on the year you read this article, this section may be heavily outdated — I really hope so.
+
+### The Bullish Case
+The bullish case for any valuable asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize. With several already in motion, Zcash may finally be poisoned to benefit from this trifecta.
+
+#### Zcash is Valuable
+Zcash is not a science fair project focused on researching mathematical breakthroughs. As we will see, it is the hardest and most useful money ever invented. This article is not a theoretical one or privacy propaganda. It is the outline plan for Zcash's possible exponential growth over the next few years, with extreme wealth captured by its holders.
+
+In his "The Bullish Case for Bitcoin" essay, Vijay Boyapati expands on the ideal properties a store-of-value should have. He highlighted eight elementary attributes of it:
+- It needs to be **durable** and **portable**. It must not be perishable or easily destroyed and be easy to transport and store. It should also allow for long-distance trade and protection against theft.
+- It needs to be **fungible** and **verifiable**. One unit of the object should be interchangeable with another of equal quantity, and it should be easy to identify and verify as authentic. This verification increases confidence and increases trade.
+- It needs to be **divisible** and **scarce**. The good must be easy to subdivide, allowing frictionless trades of all sizes. Most importantly, naturally, the good can't be easy to obtain or produce - otherwise, there's no value in it.
+- Finally, it needs to have an **established history** and be **censorship-resistant**. The longer society perceives the good as valuable, the greater its appeal as a store of value. Lastly, a new attribute, increasingly important in our modern digital society with pervasive surveillance, is how difficult it is for an external party to prevent the owner of the good from keeping and using it. 
+
+Based on these attributes, Comparing Zcash against Bitcoin, Gold, and Fiat allows the reader to unveil its potential as the true digital gold of the 21st century.
+
+| Property | Zcash | Bitcoin | Gold | Fiat |
+|----------|-------|---------|------|------|
+| Durable | B | B | A+ | C |
+| Portable | A+ | A+ | D | B |
+| **Fungible** | **A+** | B | A | B |
+| Verifiable | A+ | A+ | B | B |
+| Divisible | A+ | A+ | C | B |
+| Scarce | A+ | A+ | A | F |
+| Established History | D | **C** | A+ | B |
+| **Censorship Resistant** | **A+** | B | C | D |
+
+Expanding on Bitcoin's properties, Zcash allows users to unlock better fungibility and censorship resistance than every other asset in history. 
+
+As of 2025, all major cryptocurrency exchanges backtracked Bitcoin's origins to catalog its movement. Users are then evaluated on the "cleanness" of their Bitcoins for KYC/AML purposes, promoting the appearance of "Virgin Bitcoins" that go for a premium. These tools are also used by Bitcoin mining pools, which can be forced not to process transactions by their local governments if suspicious, as has happened.
+
+These properties may appear non-consequential to you, but more than 70% of the world's population lives under effective dictatorships, and the other 30% under surveillance states, be it from social media or their governments. Due to Bitcoin's transparency, your past transactions or people you have interacted with can be re-evaluated under new social paradigms that ignore historical context and condemn their users without a trial. 
+
+Did you buy some medicine 3 years ago? Now, it's used for drugs, and you are under a federal watchlist. That comment made on X about your president? Your transactions are now monitored and censored. It's the evolution of witch hunting, ensuring that no past is far enough to be reached. By preserving their privacy, Zcash protects its users from threats that may yet exist. 
+
+{:refdef: style="text-align: center;"}
+![](/assets/png/zcash-time-curve.png){:width="450px"}
+{: refdef}
+
+Where Bitcoin has a head-start on Zcash is its established history. Its launch as the first cryptocurrency allowed for a series of impossible-to-replicate benefits, from coin distribution to unconsequential technology development for the first few years to already being more mature in the world's eyes. Bitcoin's incredible work toward institutional acceptance paves the way for Zcash's legitimacy, as explored further in the article.
+
+#### Zcash's Opportunity
+Zcash holds a strong position in the expanding offshore market, which is estimated to be worth tens of trillions of dollars. The IMF reports that individuals have about $7 trillion in offshore accounts, while the Tax Justice Network estimates that $21 trillion to $32 trillion is hidden in tax havens. Approximately $4 trillion of US wealth is held offshore, and multinational firms have invested around $12 trillion in empty corporate shells.
+
+Zcash's shielded transactions differentiate it from more transparent cryptocurrencies like Bitcoin and Ethereum. In private equity—once estimated at $10 trillion—Zcash may draw interest from those desiring privacy and the benefits of a decentralized network. If the demand for fully private crypto-assets grows, Zcash's market capitalization could rise significantly.
+
+Consider MicroStrategy's public Bitcoin treasury, which invites perpetual scrutiny and front-running by eager speculators. By contrast, Zcash's inherent privacy minimizes such vulnerabilities, allowing organizations to transact and store wealth away from prying eyes. As more entities embrace crypto and DeFi, Zcash stands primed to become a keystone for privacy-focused services—bolstering its standing as both a secure store of value and a versatile payment currency.
 
 #### Where has it been so far?
 Zcash was launched in 2016, over eight years ago. Since then, it has achieved incredible world-class technical breakthroughs in its mission to bring privacy payments to the world: encrypted transactions became faster to create (40s to ~5s), and their memory requirements were reduced 100x (3GB to 0.03GB), allowing for a rising ecosystem of mobile wallets.
@@ -44,7 +90,7 @@ Zcash was launched in 2016, over eight years ago. Since then, it has achieved in
 What Zcash has not achieved, however, is material broader (non-enthusiasts) market recognition or an economic return for its supporters. This article argues why this won't be the case in the future, but first, we should see why Zcash's financial performance has historically fallen short until last year.
 
 {:refdef: style="text-align: center;"}
-![](/assets/png/zcash-price.png){:width="350px"}
+![](/assets/png/zcash-price.png){:width="750px"}
 {: refdef}
 
 First, early views within the community, including some from vocal leaders, minimized the importance of price, often stating, "The market is wrong." While there's merit in prioritizing long-term innovation over short-term speculation, this perspective overlooked a crucial nuance: price can act as a powerful Schelling point, attracting both attention and resources. The project inadvertently limited broader investment interest by deprioritizing it, creating a feedback loop of diminished sentiment and adoption. Every Bitcoin bull cycle has attracted more users to the network, and Zcash has been unable to replicate this.
@@ -58,8 +104,7 @@ Together, these factors fed a downward spiral: limited adoption by outside enthu
 These factors, however, are circumstantial and not permanent. This article is being written in 2025, while the Zcash Community has never been more active, and privacy is more important than ever. Signs of change are emerging, suggesting that the future for Zcash is no longer just a possibility but a story in the making.
 
 
-### The Bullish Case
-The bullish case for any asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize. Zcash may finally be poisoned to benefit from this trifecta, with several already in motion.
+### The Future is Now
 
 #### From Regulatory Uncertainty to Institutional Adoption
 Since Zcash's creation, crypto assets have fought several battles worldwide to obtain legitimacy. Those have pinnacled in a resounding victory with the newly elected US president, Donald Trump, tying the success of his term to Bitcoin's price and the recent record-breaking adoption of Bitcoin ETFs and other instruments by Wall Street. 
@@ -148,15 +193,6 @@ Maya is set to integrate Zcash within its protocol during the first half of 2025
 
 #### Zcash's Mission
 Despite eight years of setbacks and challenges, Zcash and its community remain unyielding, forging the next generation of financial tools to help people everywhere live, transact, and safeguard their wealth in true freedom. They are building a world where our grandchildren will never be forced to flee their homelands in desperation nor see their political views or personal identities cast into the public domain, denying them the fundamental rights they deserve. Never before have so many ground-breaking projects converged on a single mission, and this renewed momentum will catapult Zcash forward, allowing its principles of freedom to reach those who need it most: all of us.
-
-#### Zcash's Opportunity
-
-Zcash holds a strong position in the expanding offshore market, which is estimated to be worth tens of trillions of dollars. The IMF reports that individuals have about $7 trillion in offshore accounts, while the Tax Justice Network estimates that $21 trillion to $32 trillion is hidden in tax havens. Approximately $4 trillion of US wealth is held offshore, and multinational firms have invested around $12 trillion in empty corporate shells.
-
-Zcash's shielded transactions differentiate it from more transparent cryptocurrencies like Bitcoin and Ethereum. In private equity—once estimated at $10 trillion—Zcash may draw interest from those desiring privacy and the benefits of a decentralized network. If the demand for fully private crypto-assets grows, Zcash's market capitalization could rise significantly.
-
-Consider MicroStrategy's public Bitcoin treasury, which invites perpetual scrutiny and front-running by eager speculators. By contrast, Zcash's inherent privacy minimizes such vulnerabilities, allowing organizations to transact and store wealth away from prying eyes. As more entities embrace crypto and DeFi, Zcash stands primed to become a keystone for privacy-focused services—bolstering its standing as both a secure store of value and a versatile payment currency.
-
 
 #### Risks
 As the saying goes, nothing in life is certain. Zcash is not immune to risks, and although they are currently much smaller than they were in 2016, they are still present. 
