@@ -27,7 +27,7 @@ Users can also share "viewing keys" if they want to selectively disclose the con
 
 Many people mistakenly believe that Bitcoin payments are anonymous simply because pseudonymous addresses are used. However, the reality is that these transactions are permanently recorded. When you buy goods, pay someone, or interact with a business, the involved parties (and anyone monitoring those transactions) can use available tools to connect your addresses across past, present, and future transactions. 
 
-Zcash solves the privacy problem using the most advanced methods available. It is at the forefront of these researches without overlooking the other use cases in which you might reveal yourself.
+Zcash’s use of Zero Knowledge Proofs is widely regarded among cryptographers as a state-of-the-art approach to privacy, and it's the most advanced method available to solve the privacy problem.
 
 #### Other Differences to Bitcoin
 There are several other differences between Zcash and Bitcoin, ranging from technical parameters to behavioral differences. 
@@ -42,7 +42,7 @@ The last significant difference I would like to highlight is Zcash's rate of cha
 The bullish case for any valuable asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize. With several already in motion, Zcash may finally be poisoned to benefit from this trifecta.
 
 #### Zcash is Valuable
-Zcash is not a science fair project focused on researching mathematical breakthroughs. As we will see, it is the hardest and most useful money ever invented. This article is not a theoretical one or privacy propaganda. It is the outline plan for Zcash's possible exponential growth over the next few years, with extreme wealth captured by its holders.
+Zcash is not a science fair project focused on researching mathematical breakthroughs. As we will see, Zcash has the potential to become the best store-of-value in the world. This article is not a theoretical one or privacy propaganda. It is the outline plan for Zcash's possible tremendous growth over the next few years, with this value being captured by its holders.
 
 In his "The Bullish Case for Bitcoin" essay, Vijay Boyapati expands on the ideal properties a store-of-value should have. He highlighted eight elementary attributes of it:
 - It needs to be **durable** and **portable**. It must not be perishable or easily destroyed and be easy to transport and store. It should also allow for long-distance trade and protection against theft.
@@ -67,7 +67,7 @@ Expanding on Bitcoin's properties, Zcash allows users to unlock better fungibili
 
 As of 2025, all major cryptocurrency exchanges backtracked Bitcoin's origins to catalog its movement. Users are then evaluated on the "cleanness" of their Bitcoins for KYC/AML purposes, promoting the appearance of "[Virgin Bitcoins](https://coinmarketcap.com/academy/glossary/virgin-bitcoin)" that go for a premium. These tools are also used by Bitcoin mining pools, which can be forced not to process transactions by their local governments if suspicious, as [has happened](https://thedefiant.io/news/blockchains/non-us-bitcoin-miner-gets-caught-censoring-transactions).
 
-These properties may appear non-consequential to you, but more than 70% of the world's population lives under effective dictatorships, and the other 30% under surveillance states, be it from social media or their governments. Due to Bitcoin's transparency, your past transactions or people you have interacted with can be re-evaluated under new social paradigms that ignore historical context and condemn their users without a trial. 
+These properties may appear non-consequential to you, but more than [70% of the world's population](https://www.gu.se/en/news/dictatorships-advancing-globally) lives under effective dictatorships, and the other 30% under surveillance states, be it from social media or their governments. Due to Bitcoin's transparency, your past transactions or people you have interacted with can be re-evaluated under new social paradigms that ignore historical context and condemn their users without a trial. 
 
 Did you buy some medicine 3 years ago? Now, it's used for drugs, and you are under a federal watchlist. That comment made on X about your president? Your transactions are now monitored and censored. It's the evolution of witch hunting, ensuring that no past is far enough to be reached. By preserving their privacy, Zcash protects its users from threats that may yet exist. 
 
