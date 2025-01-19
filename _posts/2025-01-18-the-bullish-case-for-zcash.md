@@ -3,6 +3,7 @@ title: The Bullish Case for Zcash
 description: "Why Zcash may be the best investment in the second half of the 2020s"
 date: 2025-01-18 10:34:11 +01:00
 preview: "/assets/png/zcash-primary-black-white-logo.png"
+header-img: "/assets/png/zcash-primary-black-white-logo.png"
 categories:
 - research    # Change from array syntax to hyphen syntax
 tags: []
