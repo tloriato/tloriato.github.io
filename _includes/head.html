@@ -1,5 +1,8 @@
 <head>
-  <!-- HTML Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>
     {% if page.title %}
       {{ page.title | escape }}
@@ -8,49 +11,53 @@
     {% endif %}
   </title>
 
-  <!-- Page description fallback if page.description or page.excerpt is missing -->
-  <meta name="description" 
-        content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="description"
+        content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta property="og:description"
+        content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
 
-  <!-- Open Graph / Facebook Meta Tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <meta property="og:title" content="{{ page.title | escape }}">
-  <meta property="og:description" 
-        content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="stylesheet" href="{{ "assets/main.css" | relative_url }}">
+  {% include fonts.html %}
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml"
+        title="{{ site.title | escape }}"
+        href="{{ "/feed.xml" | relative_url }}">
+  <link rel="icon" type="image/png" href="/assets/favicon.ico">
 
-  {% if page.header-img %}
-    <!-- If a post/page has a custom header image -->
-    <meta property="og:image" content="{{ site.url }}{{ page.header-img }}">
-  {% else %}
-    <!-- Otherwise use a fallback image -->
-    <meta property="og:image" content="{{ site.url }}/assets/header.png">
-  {% endif %}
-
-  <!-- Twitter Meta Tags -->
+  <!-- Twitter Card data -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Optional: these help specify domain & link, but not strictly required -->
-  <meta property="twitter:domain" content="{{ site.url | split:'//' | last }}">
-  <meta property="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
-  
-  <meta name="twitter:title" content="{{ page.title | escape }}">
+  <meta name="twitter:site" content="@tiagoloriato"> <!-- or your site’s @handle -->
+  <meta name="twitter:creator" content="@tiagoloriato">
+  <meta name="twitter:title" content="{{ page.title }}">
   <meta name="twitter:description"
-        content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-  
+        content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <!-- Open Graph data (for LinkedIn, Facebook, etc.) -->
   {% if page.header-img %}
+    <meta property="og:image" content="{{ site.url }}{{ page.header-img }}" />
+    <meta property="og:image:height" content="474">
+    <meta property="og:image:width" content="905">
     <meta name="twitter:image" content="{{ site.url }}{{ page.header-img }}">
   {% else %}
+    <meta property="og:image" content="{{ site.url }}/assets/header.png" />
+    <meta property="og:image:height" content="474">
+    <meta property="og:image:width" content="905">
     <meta name="twitter:image" content="{{ site.url }}/assets/header.png">
   {% endif %}
 
-  <!-- (Optional) Indicate your Twitter handle or site handle -->
-  <meta name="twitter:site" content="@YourTwitterHandle">
-  <meta name="twitter:creator" content="@YourTwitterHandle">
-  
-  <!-- Favicon, RSS, CSS, etc. below -->
-  <link rel="icon" type="image/png" href="/assets/favicon.ico">
-  <link rel="stylesheet" href="{{ "assets/main.css" | relative_url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}"
-        href="{{ "/feed.xml" | relative_url }}">
+  <!-- If you want alt text for the Twitter image (optional) -->
+  <!--
+  <meta name="twitter:image:alt" content="Describe the image here for accessibility">
+  -->
+
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  {% if page.math != false %}
+    {% include mathjax.html %}
+  {% endif %}
+
+  {% if jekyll.environment == 'production' %}
+    <!-- Production-specific scripts/tags go here -->
+  {% endif %}
+
+  {% seo %}
 </head>
