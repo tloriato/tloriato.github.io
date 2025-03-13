@@ -40,7 +40,7 @@ Other protocol differences include shorter block times than Bitcoin (75 seconds 
 The last significant difference I would like to highlight is Zcash's rate of change. Contrary to a more ossified Bitcoin, Zcash is still developing several bold and ground-breaking initiatives, which will be mentioned later in the document as future cataclysms. Depending on the year you read this article, this section may be heavily outdated — I really hope so.
 
 ### The Bullish Case
-The bullish case for any valuable asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize. With several already in motion, Zcash may finally be poisoned to benefit from this trifecta.
+The bullish case for any valuable asset is the culmination of several cataclysms coming together in a period of high adoption and a market opportunity to seize. With several already in motion, Zcash may finally be poised to benefit from this trifecta.
 
 #### Zcash is Valuable
 Zcash is not a science fair project focused on researching mathematical breakthroughs. As we will see, Zcash has the potential to become the best store-of-value in the world. This article is not a theoretical one or privacy propaganda. It is the outline plan for Zcash's possible tremendous growth over the next few years, with this value being captured by its holders.
@@ -171,7 +171,7 @@ It gets better. The release of this hardware wallet came integrated with Zashi, 
 
 These developments have allowed the expansion of ZECs stored in shielded, private addresses, with an ever-great pace in the last month of 2024 and probably a bigger one once Keystone is in the hands of more people or Ledger and Trezor decide to take their users' privacy seriously, which is doubtful given their constant data breaches. 
 
-The reduction in computation needed to perform encrypted transactions by orders of magnitude since 2016 has also been poisoned to unblock another wallet frontier: browser wallets. [On September 26, 2024](https://x.com/ChainSafeth/status/1839388987770949979), the ChainSafe team successfully performed the world's first Zcash-shielded transaction from a browser. The WebZjs project is aimed to be production-ready in February.
+The reduction in computation needed to perform encrypted transactions by orders of magnitude since 2016 has also been poised to unblock another wallet frontier: browser wallets. [On September 26, 2024](https://x.com/ChainSafeth/status/1839388987770949979), the ChainSafe team successfully performed the world's first Zcash-shielded transaction from a browser. The WebZjs project is aimed to be production-ready in February.
 
 ![](/assets/png/zcash-brave-users.png){:.float-image-left}
 
