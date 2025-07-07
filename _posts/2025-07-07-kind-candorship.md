@@ -13,7 +13,7 @@ slug: kind-candorship
 
 # Kind Candorship in Life
 
-I've always been proud of myself for my ability to execute and elaborate upon things transparently across all members of a project, regardless of where they landed in the organisational matrix. My willingness to speak up was a "strong cultural element" that my company needed more of, and it was my duty to pass it to new joiners. I had earned the reputation of being a "straight shooter", but it came at a cost.
+I've always been proud of myself for my ability to not only execute, but to voice and elaborate my opinions transparently to all members of a project, regardless of where they were in the organisational matrix. My willingness to speak up was a "strong cultural element" that my company needed more of, and it was my duty to pass it to new joiners. I had earned the reputation of being a "straight shooter", but it came at a cost.
 
 A couple of years ago, at Teya, I noticed a shift in how I interacted with certain peers and how others engaged with me. That triggered some changes in me to rectify the matter (and still do!), and I had never planned on writing about it until I read a quote last week:
 
