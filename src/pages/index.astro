@@ -18,7 +18,7 @@ const projects = allPosts.filter((p) => p.data.category === 'project');
     <div class="entry-list">
       {essays.map((post) => (
         <EntryItem
-          href={`/${post.slug}/`}
+          href={`/${post.id}/`}
           date={post.data.date}
           title={post.data.title}
           abstract={post.data.description}
@@ -32,7 +32,7 @@ const projects = allPosts.filter((p) => p.data.category === 'project');
     <div class="entry-list">
       {projects.map((post) => (
         <EntryItem
-          href={`/${post.slug}/`}
+          href={`/${post.id}/`}
           date={post.data.date}
           title={post.data.title}
           abstract={post.data.description}
