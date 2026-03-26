@@ -5,7 +5,7 @@ date: 2026-03-26
 category: essay
 ---
 
-Sometime in 2020, on a Friday night, a bug in our settlement automation charged every merchant in Iceland three times over. A file had been sent to Visa repeatedly — bad automation, not enough storage. There was no one but me.
+Sometime in 2020, on a Friday night, a bug in our settlement automation charged every cardholder in Iceland three times over. A file had been sent to Visa repeatedly — bad automation, not enough storage. There was no one but me.
 
 I had no idea what I was doing. I downloaded Visa's technical manuals and started reading. I opened the settlement files — raw codes, raw text — and tried to understand how to reverse what had happened. I had never built a reversal file. I figured it out line by line, built the file, and sent it back. By Saturday it was done.
 
