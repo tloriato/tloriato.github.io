@@ -12,7 +12,7 @@ const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`
 
 <script define:vars={{ canvasId, variant }}>
   const canvas = document.getElementById(canvasId);
-  const gl = canvas?.getContext('webgl');
+  const gl = canvas?.getContext('webgl', { alpha: true, premultipliedAlpha: false });
 
   if (gl && canvas) {
     const vsSource = `
@@ -24,6 +24,7 @@ const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`
       precision highp float;
       uniform vec2 u_resolution;
       uniform float u_time;
+      uniform float u_reveal;
       uniform vec3 u_color_bg;
       uniform vec3 u_color_fg;
       uniform vec3 u_color_accent;
@@ -76,7 +77,16 @@ const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`
         final_color = mix(final_color, u_color_fg, highlight * final_shape);
         float static_noise = random(gl_FragCoord.xy * u_time * 0.001) * 0.03;
         final_color += static_noise * (1.0 - final_shape);
-        gl_FragColor = vec4(final_color, 1.0);
+
+        float alpha = 1.0;
+        if (u_reveal > 0.0) {
+          vec2 center = u_resolution * 0.5;
+          float d = length(gl_FragCoord.xy - center) / length(u_resolution * 0.5);
+          float burn_noise = fbm(st * 5.0 + vec2(u_reveal * 0.3)) * 0.3;
+          float burn_radius = u_reveal * 2.2;
+          alpha = smoothstep(burn_radius - 0.25, burn_radius, d + burn_noise);
+        }
+        gl_FragColor = vec4(final_color, alpha);
       }
     `;
 
@@ -153,6 +163,7 @@ const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`
     const posLoc = gl.getAttribLocation(program, 'aVertexPosition');
     const resLoc = gl.getUniformLocation(program, 'u_resolution');
     const timeLoc = gl.getUniformLocation(program, 'u_time');
+    const revealLoc = gl.getUniformLocation(program, 'u_reveal');
     const bgLoc = gl.getUniformLocation(program, 'u_color_bg');
     const fgLoc = gl.getUniformLocation(program, 'u_color_fg');
     const accentLoc = gl.getUniformLocation(program, 'u_color_accent');
@@ -176,11 +187,31 @@ const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`
 
     const startTime = Date.now();
     let isVisible = true;
+    let revealValue = 0.0;
 
     const observer = new IntersectionObserver(([entry]) => {
       isVisible = entry.isIntersecting;
     });
     observer.observe(canvas);
+
+    // Listen for reveal trigger from parent
+    const wrapper = canvas.closest('.webgl-wrapper');
+    if (wrapper) {
+      wrapper.addEventListener('start-reveal', () => {
+        const duration = 5000;
+        const start = performance.now();
+        function animateReveal(now) {
+          const t = Math.min((now - start) / duration, 1.0);
+          revealValue = 1 - Math.pow(1 - t, 3); // ease-out cubic
+          if (t < 1.0) {
+            requestAnimationFrame(animateReveal);
+          } else {
+            wrapper.dispatchEvent(new CustomEvent('reveal-complete'));
+          }
+        }
+        requestAnimationFrame(animateReveal);
+      });
+    }
 
     function render() {
       if (isVisible) {
@@ -189,12 +220,15 @@ const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`
           canvas.height = canvas.clientHeight;
         }
         gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
         gl.useProgram(program);
         gl.bindBuffer(gl.ARRAY_BUFFER, buf);
         gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(posLoc);
         gl.uniform2f(resLoc, canvas.width, canvas.height);
         gl.uniform1f(timeLoc, (Date.now() - startTime) / 1000.0);
+        if (revealLoc) gl.uniform1f(revealLoc, revealValue);
         gl.uniform3fv(bgLoc, bgRgb);
         if (fgLoc) gl.uniform3fv(fgLoc, fgRgb);
         if (accentLoc) gl.uniform3fv(accentLoc, accentRgb);

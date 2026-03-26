@@ -36,6 +36,8 @@ const { title, description } = Astro.props;
   const readerPanel = document.getElementById('reader-panel');
   const entries = document.querySelectorAll('.entry-item[data-post-id]');
 
+  let hasRevealed = false;
+
   function showPost(postId: string) {
     if (!graphicPanel || !readerPanel) return;
 
@@ -46,14 +48,31 @@ const { title, description } = Astro.props;
     const target = readerPanel.querySelector(`[data-article-id="${postId}"]`) as HTMLElement;
     if (!target) return;
 
-    graphicPanel.style.display = 'none';
+    // Mark active entry
+    entries.forEach((e) => e.classList.remove('active'));
+    document.querySelector(`.entry-item[data-post-id="${postId}"]`)?.classList.add('active');
+
+    // Show reader behind the graphic panel
     readerPanel.style.display = 'block';
     target.style.display = 'block';
     readerPanel.scrollTop = 0;
 
-    // Mark active entry
-    entries.forEach((e) => e.classList.remove('active'));
-    document.querySelector(`.entry-item[data-post-id="${postId}"]`)?.classList.add('active');
+    if (!hasRevealed) {
+      // First click: animate the burn reveal
+      const wrapper = graphicPanel.querySelector('.webgl-wrapper');
+      if (wrapper) {
+        wrapper.addEventListener('reveal-complete', () => {
+          graphicPanel.style.display = 'none';
+        }, { once: true });
+        wrapper.dispatchEvent(new CustomEvent('start-reveal'));
+        hasRevealed = true;
+      } else {
+        graphicPanel.style.display = 'none';
+      }
+    } else {
+      // Already revealed, just swap content
+      graphicPanel.style.display = 'none';
+    }
   }
 
   function showGraphic() {
@@ -130,14 +149,15 @@ const { title, description } = Astro.props;
   }
 
   .graphic-panel {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
   }
 
   .reader-panel {
     display: none;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
     overflow-y: auto;
   }
 </style>
