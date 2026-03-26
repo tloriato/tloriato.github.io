@@ -11,6 +11,9 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 <Shell title={title} description={description}>
+  <div class="mobile-graphic">
+    <WebGLCanvas variant="index" />
+  </div>
   <main class="main-grid">
     <div class="content-col">
       <slot />
@@ -70,29 +73,38 @@ const { title, description } = Astro.props;
     });
   });
 
-  // Close buttons
-  readerPanel?.querySelectorAll('.reader-close').forEach((btn) => {
-    btn.addEventListener('click', showGraphic);
-  });
 </script>
 
 <style>
+  .mobile-graphic {
+    height: 80px;
+    border-bottom: var(--border-width) solid var(--c-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-graphic {
+      display: none;
+    }
+  }
+
   .main-grid {
     flex: 1;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
   }
 
   @media (min-width: 1024px) {
     .main-grid {
+      display: grid;
       grid-template-columns: 32% 68%;
     }
   }
 
   .content-col {
     padding: 0;
-    border-right: var(--border-width) solid transparent;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -100,7 +112,7 @@ const { title, description } = Astro.props;
 
   @media (min-width: 1024px) {
     .content-col {
-      border-right-color: var(--c-border);
+      border-right: var(--border-width) solid var(--c-border);
     }
   }
 
@@ -108,7 +120,13 @@ const { title, description } = Astro.props;
     position: relative;
     background: var(--c-bg);
     overflow: hidden;
-    min-height: 50vh;
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .graphic-col {
+      display: block;
+    }
   }
 
   .graphic-panel {

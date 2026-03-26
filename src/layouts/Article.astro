@@ -15,7 +15,7 @@ const formattedDate = date
   ? date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
   : null;
 ---
-<Shell title={title} description={description}>
+<Shell title={title} description={description} backLink pageTitle={title}>
   <div class="reader-container">
     <div class="visual-header-band">
       <WebGLCanvas variant="article" />
@@ -57,6 +57,16 @@ const formattedDate = date
     position: relative;
   }
 
+  @media (max-width: 1023px) {
+    .visual-header-band {
+      height: 80px;
+    }
+
+    .manuscript {
+      padding: var(--sp-xl) var(--sp-md);
+    }
+  }
+
   .article-meta {
     margin-bottom: var(--sp-xl);
     border-bottom: var(--border-width) solid var(--c-border);
@@ -71,6 +81,7 @@ const formattedDate = date
     display: block;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-variant-numeric: tabular-nums;
   }
 
   .article-title {
@@ -79,6 +90,7 @@ const formattedDate = date
     line-height: 1;
     font-weight: 400;
     margin-bottom: var(--sp-md);
+    text-wrap: balance;
   }
 
   /* --- Markdown element styles (prose) --- */
@@ -89,6 +101,7 @@ const formattedDate = date
     line-height: 1;
     font-weight: 400;
     margin: var(--sp-2xl) 0 var(--sp-md) 0;
+    text-wrap: balance;
   }
 
   .prose :global(h2) {
@@ -100,6 +113,7 @@ const formattedDate = date
     letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 400;
+    text-wrap: balance;
   }
 
   .prose :global(h3) {
@@ -107,6 +121,7 @@ const formattedDate = date
     font-size: 1.5rem;
     font-weight: 400;
     margin: var(--sp-xl) 0 var(--sp-md) 0;
+    text-wrap: balance;
   }
 
   .prose :global(h4) {
@@ -134,8 +149,9 @@ const formattedDate = date
     font-size: 1.25rem;
     line-height: 1.7;
     margin-bottom: var(--sp-lg);
-    color: #333;
+    color: var(--c-fg);
     text-align: justify;
+    text-wrap: pretty;
   }
 
   .prose :global(blockquote) {
@@ -208,17 +224,21 @@ const formattedDate = date
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+    transition-property: color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
   }
 
   .prose :global(a:hover) {
-    opacity: 0.7;
+    color: var(--c-fg-muted);
   }
 
   .prose :global(img) {
     max-width: 100%;
     height: auto;
     display: block;
-    border: var(--border-width) solid var(--c-border);
+    outline: 1px solid rgba(0, 0, 0, 0.08);
+    outline-offset: -1px;
     margin-bottom: var(--sp-lg);
   }
 
@@ -226,7 +246,7 @@ const formattedDate = date
     font-family: var(--font-serif);
     font-size: 1.25rem;
     line-height: 1.7;
-    color: #333;
+    color: var(--c-fg);
     list-style: none;
     padding-left: var(--sp-lg);
     margin-bottom: var(--sp-lg);
@@ -249,7 +269,7 @@ const formattedDate = date
     font-family: var(--font-serif);
     font-size: 1.25rem;
     line-height: 1.7;
-    color: #333;
+    color: var(--c-fg);
     list-style: none;
     padding-left: var(--sp-lg);
     margin-bottom: var(--sp-lg);

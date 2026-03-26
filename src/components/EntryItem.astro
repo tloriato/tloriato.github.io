@@ -9,10 +9,11 @@ interface Props {
 
 const { href, postId, date, title, abstract } = Astro.props;
 
+const month = date.toLocaleDateString('en-GB', { month: 'short' }).toUpperCase();
 const year = date.getFullYear();
 ---
 <a href={href} class="entry-item" data-post-id={postId}>
-  <span class="entry-date">{year}</span>
+  <span class="entry-date">{month}<br />{year}</span>
   <div class="entry-details">
     <h2 class="entry-title">{title}</h2>
     <p class="entry-abstract">{abstract}</p>
@@ -28,12 +29,18 @@ const year = date.getFullYear();
     border-bottom: var(--border-width) solid var(--c-border);
     text-decoration: none;
     color: inherit;
-    transition: background-color 0.2s ease;
+    transition-property: background-color, scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
     align-items: flex-start;
   }
 
   .entry-item:hover {
     background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .entry-item:active {
+    scale: 0.96;
   }
 
   .entry-item.active {
@@ -44,6 +51,7 @@ const year = date.getFullYear();
     font-size: 11px;
     color: var(--c-fg-muted);
     margin-top: 4px;
+    font-variant-numeric: tabular-nums;
   }
 
   .entry-details {
@@ -59,6 +67,7 @@ const year = date.getFullYear();
     margin: 0;
     font-weight: 400;
     color: var(--c-fg);
+    text-wrap: balance;
   }
 
   .entry-abstract {

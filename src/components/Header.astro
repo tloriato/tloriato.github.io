@@ -1,11 +1,18 @@
 ---
+interface Props {
+  backLink?: boolean;
+  pageTitle?: string;
+}
+const { backLink = false, pageTitle } = Astro.props;
 ---
 <header class="header">
-  <div class="coord">[LAT. 51.5074° N]</div>
-  <a href="/" class="brand">
-    Tiago Loriato
-    <span>A collection of notes, researches, projects, and essays</span>
-  </a>
+  {backLink
+    ? <a href="/" class="coord back-link">&larr; Back</a>
+    : <div class="coord">[LAT. 51.5074° N]</div>
+  }
+  {pageTitle && <span class="page-title">{pageTitle}</span>}
+  <a href="/" class="brand">Tiago Loriato</a>
+  <div class="tagline">A collection of notes, researches, projects, and essays</div>
 </header>
 
 <style>
@@ -32,22 +39,78 @@
     font-family: var(--font-serif);
     font-size: 1.25rem;
     font-style: italic;
-    flex: 1;
     display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: var(--sp-md);
-    padding: var(--sp-md);
+    align-items: center;
+    padding: var(--sp-md) var(--sp-lg);
     text-decoration: none;
     color: inherit;
+    white-space: nowrap;
   }
 
-  .brand span {
+  .tagline {
     font-family: var(--font-mono);
     font-size: 10px;
-    font-style: normal;
     color: var(--c-fg-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding: var(--sp-md) var(--sp-lg);
+  }
+
+  .page-title {
+    display: none;
+  }
+
+  .back-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+  }
+
+  .back-link:hover {
+    color: var(--c-fg-muted);
+  }
+
+  @media (max-width: 1023px) {
+    .coord {
+      font-size: 9px;
+      padding: var(--sp-sm) var(--sp-sm);
+      letter-spacing: 0.05em;
+    }
+
+    .back-link {
+      font-size: 11px;
+      padding: var(--sp-sm) var(--sp-lg);
+    }
+
+    .brand {
+      font-size: 1rem;
+      padding: var(--sp-sm) var(--sp-sm);
+    }
+
+    .page-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      padding: var(--sp-sm) var(--sp-sm);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+
+    .page-title ~ .brand {
+      display: none;
+    }
+
+    .tagline {
+      display: none;
+    }
   }
 </style>

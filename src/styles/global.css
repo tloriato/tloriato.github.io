@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
-
 :root {
   --c-bg: #eae6db;
   --c-fg: #2c2a26;
@@ -37,14 +35,21 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
+  height: 100dvh;
   padding: var(--frame-padding);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 a {
   color: var(--c-fg);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+}
+
+@media (max-width: 1023px) {
+  body {
+    padding: 0;
+  }
 }

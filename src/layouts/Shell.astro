@@ -5,9 +5,11 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  backLink?: boolean;
+  pageTitle?: string;
 }
 
-const { title, description = 'A collection of notes, researches, projects, and essays.' } = Astro.props;
+const { title, description = 'A collection of notes, researches, projects, and essays.', backLink = false, pageTitle } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +19,13 @@ const { title, description = 'A collection of notes, researches, projects, and e
   <title>{title} | Tiago Loriato</title>
   <meta name="description" content={description} />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet" />
 </head>
 <body>
   <div class="shell">
-    <Header />
+    <Header backLink={backLink} pageTitle={pageTitle} />
     <slot />
   </div>
 </body>
@@ -35,5 +40,11 @@ const { title, description = 'A collection of notes, researches, projects, and e
     position: relative;
     background: var(--c-bg);
     overflow: hidden;
+  }
+
+  @media (max-width: 1023px) {
+    .shell {
+      border: none;
+    }
   }
 </style>
