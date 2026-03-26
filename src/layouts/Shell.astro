@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'A collection of notes, researches, projects, and essays.' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Tiago Loriato</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+<body>
+  <div class="shell">
+    <Header />
+    <slot />
+  </div>
+</body>
+</html>
+
+<style>
+  .shell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: var(--border-width) solid var(--c-border);
+    position: relative;
+    background: var(--c-bg);
+    overflow: hidden;
+  }
+</style>

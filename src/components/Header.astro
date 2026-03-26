@@ -1,0 +1,53 @@
+---
+---
+<header class="header">
+  <div class="coord">[LAT. 51.5074° N]</div>
+  <a href="/" class="brand">
+    Tiago Loriato
+    <span>A collection of notes, researches, projects, and essays</span>
+  </a>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    border-bottom: var(--border-width) solid var(--c-border);
+    background: var(--c-bg);
+  }
+
+  .coord {
+    color: var(--c-fg);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: var(--sp-md) var(--sp-lg);
+    display: flex;
+    align-items: center;
+    border-right: var(--border-width) solid var(--c-border);
+    white-space: nowrap;
+  }
+
+  .brand {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--sp-md);
+    padding: var(--sp-md);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand span {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-style: normal;
+    color: var(--c-fg-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>
