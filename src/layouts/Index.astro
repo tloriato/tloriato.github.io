@@ -1,0 +1,59 @@
+---
+import Shell from './Shell.astro';
+import WebGLCanvas from '../components/WebGLCanvas.astro';
+import GraphicOverlay from '../components/GraphicOverlay.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<Shell title={title} description={description}>
+  <main class="main-grid">
+    <div class="content-col">
+      <slot />
+    </div>
+    <div class="graphic-col">
+      <WebGLCanvas variant="index" />
+      <GraphicOverlay caption="Fig 1. Procedural Halftone Topography" detail="Scale 1:1000" />
+    </div>
+  </main>
+</Shell>
+
+<style>
+  .main-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .main-grid {
+      grid-template-columns: 32% 68%;
+    }
+  }
+
+  .content-col {
+    padding: 0;
+    border-right: var(--border-width) solid transparent;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  @media (min-width: 1024px) {
+    .content-col {
+      border-right-color: var(--c-border);
+    }
+  }
+
+  .graphic-col {
+    position: relative;
+    background: var(--c-bg);
+    overflow: hidden;
+    min-height: 50vh;
+  }
+</style>
