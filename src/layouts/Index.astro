@@ -16,11 +16,65 @@ const { title, description } = Astro.props;
       <slot />
     </div>
     <div class="graphic-col">
-      <WebGLCanvas variant="index" />
-      <GraphicOverlay caption="Fig 1. Procedural Halftone Topography" detail="Scale 1:1000" />
+      <div class="graphic-panel" id="graphic-panel">
+        <WebGLCanvas variant="index" />
+        <GraphicOverlay caption="Fig 1. Procedural Halftone Topography" detail="Scale 1:1000" />
+      </div>
+      <div class="reader-panel" id="reader-panel">
+        <slot name="reader" />
+      </div>
     </div>
   </main>
 </Shell>
+
+<script>
+  const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+  const graphicPanel = document.getElementById('graphic-panel');
+  const readerPanel = document.getElementById('reader-panel');
+  const entries = document.querySelectorAll('.entry-item[data-post-id]');
+
+  function showPost(postId: string) {
+    if (!graphicPanel || !readerPanel) return;
+
+    // Hide all articles, show the selected one
+    readerPanel.querySelectorAll('.reading-article').forEach((el) => {
+      (el as HTMLElement).style.display = 'none';
+    });
+    const target = readerPanel.querySelector(`[data-article-id="${postId}"]`) as HTMLElement;
+    if (!target) return;
+
+    graphicPanel.style.display = 'none';
+    readerPanel.style.display = 'block';
+    target.style.display = 'block';
+    readerPanel.scrollTop = 0;
+
+    // Mark active entry
+    entries.forEach((e) => e.classList.remove('active'));
+    document.querySelector(`.entry-item[data-post-id="${postId}"]`)?.classList.add('active');
+  }
+
+  function showGraphic() {
+    if (!graphicPanel || !readerPanel) return;
+    graphicPanel.style.display = '';
+    readerPanel.style.display = 'none';
+    entries.forEach((e) => e.classList.remove('active'));
+  }
+
+  // Intercept clicks on desktop
+  entries.forEach((entry) => {
+    entry.addEventListener('click', (e) => {
+      if (!isDesktop()) return; // Let mobile navigate normally
+      e.preventDefault();
+      const postId = (entry as HTMLElement).dataset.postId;
+      if (postId) showPost(postId);
+    });
+  });
+
+  // Close buttons
+  readerPanel?.querySelectorAll('.reader-close').forEach((btn) => {
+    btn.addEventListener('click', showGraphic);
+  });
+</script>
 
 <style>
   .main-grid {
@@ -55,5 +109,17 @@ const { title, description } = Astro.props;
     background: var(--c-bg);
     overflow: hidden;
     min-height: 50vh;
+  }
+
+  .graphic-panel {
+    width: 100%;
+    height: 100%;
+  }
+
+  .reader-panel {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
   }
 </style>

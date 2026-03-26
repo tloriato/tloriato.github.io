@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Index from '../layouts/Index.astro';
 import FilterRibbon from '../components/FilterRibbon.astro';
 import EntryItem from '../components/EntryItem.astro';
@@ -9,6 +9,17 @@ const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
 
 const essays = allPosts.filter((p) => p.data.category === 'essay');
 const projects = allPosts.filter((p) => p.data.category === 'project');
+
+// Pre-render all post content for inline reading
+const rendered = await Promise.all(
+  allPosts.map(async (post) => {
+    const { Content } = await render(post);
+    const formattedDate = post.data.date.toLocaleDateString('en-GB', {
+      year: 'numeric', month: 'long', day: 'numeric',
+    });
+    return { post, Content, formattedDate };
+  })
+);
 ---
 <Index title="Tiago Loriato">
   <FilterRibbon categories={['essays', 'projects']} />
@@ -19,6 +30,7 @@ const projects = allPosts.filter((p) => p.data.category === 'project');
       {essays.map((post) => (
         <EntryItem
           href={`/${post.id}/`}
+          postId={post.id}
           date={post.data.date}
           title={post.data.title}
           abstract={post.data.description}
@@ -33,6 +45,7 @@ const projects = allPosts.filter((p) => p.data.category === 'project');
       {projects.map((post) => (
         <EntryItem
           href={`/${post.id}/`}
+          postId={post.id}
           date={post.data.date}
           title={post.data.title}
           abstract={post.data.description}
@@ -40,6 +53,24 @@ const projects = allPosts.filter((p) => p.data.category === 'project');
       ))}
     </div>
   </section>
+
+  {rendered.map(({ post, Content, formattedDate }) => (
+    <article class="reading-article" data-article-id={post.id} style="display:none" slot="reader">
+      <div class="reader-header">
+        <button class="reader-close" type="button">&larr; Back to Index</button>
+        <a href={`/${post.id}/`} class="reader-permalink">Open full page</a>
+      </div>
+      <div class="reader-manuscript">
+        <header class="reader-meta">
+          <span class="reader-date">{formattedDate}</span>
+          <h1 class="reader-title">{post.data.title}</h1>
+        </header>
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    </article>
+  ))}
 </Index>
 
 <style>
@@ -58,5 +89,284 @@ const projects = allPosts.filter((p) => p.data.category === 'project');
   .entry-list {
     display: flex;
     flex-direction: column;
+  }
+
+  /* Reader panel styles */
+  .reading-article {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reader-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--sp-sm) var(--sp-lg);
+    border-bottom: var(--border-width) solid var(--c-border);
+    background: var(--c-bg);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  .reader-close {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    background: none;
+    border: var(--border-width) solid var(--c-fg-muted);
+    color: var(--c-fg-muted);
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .reader-close:hover {
+    border-color: var(--c-fg);
+    color: var(--c-fg);
+  }
+
+  .reader-permalink {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--c-fg-muted);
+    text-decoration: none;
+  }
+
+  .reader-permalink:hover {
+    color: var(--c-fg);
+  }
+
+  .reader-manuscript {
+    max-width: var(--max-text-width);
+    margin: 0 auto;
+    padding: var(--sp-xl) var(--sp-lg) var(--sp-2xl);
+  }
+
+  .reader-meta {
+    margin-bottom: var(--sp-xl);
+    border-bottom: var(--border-width) solid var(--c-border);
+    padding-bottom: var(--sp-md);
+  }
+
+  .reader-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-fg-muted);
+    margin-bottom: var(--sp-sm);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .reader-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: var(--sp-md);
+  }
+
+  /* Prose styles — same as Article layout */
+  .prose :global(h1) {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 400;
+    margin: var(--sp-2xl) 0 var(--sp-md) 0;
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c-fg-muted);
+    display: block;
+    margin: var(--sp-2xl) 0 var(--sp-md) 0;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: var(--sp-xl) 0 var(--sp-md) 0;
+  }
+
+  .prose :global(h4) {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin: var(--sp-xl) 0 var(--sp-md) 0;
+  }
+
+  .prose :global(p) {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: var(--sp-lg);
+    color: #333;
+    text-align: justify;
+  }
+
+  .prose :global(blockquote) {
+    margin: var(--sp-xl) 0;
+    padding: var(--sp-lg);
+    border-top: var(--border-width) solid var(--c-border);
+    border-bottom: var(--border-width) solid var(--c-border);
+    border-left: none;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: var(--c-fg);
+    position: relative;
+  }
+
+  .prose :global(blockquote)::before {
+    content: '\201C';
+    position: absolute;
+    left: -1rem;
+    top: 0.5rem;
+    font-size: 4rem;
+    opacity: 0.1;
+  }
+
+  .prose :global(blockquote p) {
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .prose :global(strong) {
+    font-weight: 500;
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 0.15em 0.3em;
+    border-radius: 2px;
+  }
+
+  .prose :global(pre) {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.5;
+    border: var(--border-width) solid var(--c-border);
+    padding: var(--sp-lg);
+    overflow-x: auto;
+    margin-bottom: var(--sp-lg);
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+
+  .prose :global(a) {
+    color: var(--c-fg);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(a:hover) {
+    opacity: 0.7;
+  }
+
+  .prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: var(--border-width) solid var(--c-border);
+    margin-bottom: var(--sp-lg);
+  }
+
+  .prose :global(ul) {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #333;
+    list-style: none;
+    padding-left: var(--sp-lg);
+    margin-bottom: var(--sp-lg);
+  }
+
+  .prose :global(ul li) {
+    position: relative;
+    padding-left: var(--sp-md);
+    margin-bottom: var(--sp-sm);
+  }
+
+  .prose :global(ul li)::before {
+    content: '\2014';
+    position: absolute;
+    left: calc(var(--sp-md) * -1);
+    color: var(--c-fg-muted);
+  }
+
+  .prose :global(ol) {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #333;
+    list-style: none;
+    padding-left: var(--sp-lg);
+    margin-bottom: var(--sp-lg);
+    counter-reset: ol-counter;
+  }
+
+  .prose :global(ol li) {
+    position: relative;
+    padding-left: var(--sp-md);
+    margin-bottom: var(--sp-sm);
+    counter-increment: ol-counter;
+  }
+
+  .prose :global(ol li)::before {
+    content: counter(ol-counter);
+    position: absolute;
+    left: calc(var(--sp-md) * -1);
+    font-family: var(--font-mono);
+    font-size: 0.75em;
+    color: var(--c-fg-muted);
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: var(--border-width) solid var(--c-border);
+    margin: var(--sp-xl) 0;
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    margin-bottom: var(--sp-lg);
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    border: var(--border-width) solid var(--c-border);
+    padding: var(--sp-sm) var(--sp-md);
+    text-align: left;
+  }
+
+  .prose :global(th) {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 10px;
   }
 </style>

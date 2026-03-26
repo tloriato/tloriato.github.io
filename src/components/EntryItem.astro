@@ -1,16 +1,17 @@
 ---
 interface Props {
   href: string;
+  postId?: string;
   date: Date;
   title: string;
   abstract: string;
 }
 
-const { href, date, title, abstract } = Astro.props;
+const { href, postId, date, title, abstract } = Astro.props;
 
 const year = date.getFullYear();
 ---
-<a href={href} class="entry-item">
+<a href={href} class="entry-item" data-post-id={postId}>
   <span class="entry-date">{year}</span>
   <div class="entry-details">
     <h2 class="entry-title">{title}</h2>
@@ -33,6 +34,10 @@ const year = date.getFullYear();
 
   .entry-item:hover {
     background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .entry-item.active {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   .entry-date {
