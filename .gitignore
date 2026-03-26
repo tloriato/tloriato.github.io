@@ -21,3 +21,8 @@ tmp/*
 
 *:Zone.Identifier
 *dropbox.attrs
+
+# Astro
+node_modules/
+dist/
+.astro/
