@@ -1,0 +1,30 @@
+---
+---
+<a href="/" class="nav-back">Return to Index</a>
+
+<style>
+  .nav-back {
+    position: fixed;
+    left: calc(var(--frame-padding) + var(--sp-lg));
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 10px;
+    color: var(--c-fg-muted);
+    text-decoration: none;
+    border-right: var(--border-width) solid var(--c-border);
+    padding-right: var(--sp-sm);
+  }
+
+  .nav-back:hover {
+    color: var(--c-fg);
+  }
+
+  @media (max-width: 1024px) {
+    .nav-back {
+      display: none;
+    }
+  }
+</style>

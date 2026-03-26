@@ -1,0 +1,230 @@
+---
+interface Props {
+  variant: 'index' | 'article';
+}
+
+const { variant } = Astro.props;
+const canvasId = `glcanvas-${variant}`;
+---
+<div class="webgl-wrapper" data-variant={variant}>
+  <canvas id={canvasId} class="gl-canvas"></canvas>
+</div>
+
+<script define:vars={{ canvasId, variant }}>
+  const canvas = document.getElementById(canvasId);
+  const gl = canvas?.getContext('webgl');
+
+  if (gl && canvas) {
+    const vsSource = `
+      attribute vec4 aVertexPosition;
+      void main() { gl_Position = aVertexPosition; }
+    `;
+
+    const indexFs = `
+      precision highp float;
+      uniform vec2 u_resolution;
+      uniform float u_time;
+      uniform vec3 u_color_bg;
+      uniform vec3 u_color_fg;
+      uniform vec3 u_color_accent;
+
+      float random(vec2 st) {
+        return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+      }
+
+      float noise(vec2 st) {
+        vec2 i = floor(st);
+        vec2 f = fract(st);
+        float a = random(i);
+        float b = random(i + vec2(1.0, 0.0));
+        float c = random(i + vec2(0.0, 1.0));
+        float d = random(i + vec2(1.0, 1.0));
+        vec2 u = f * f * (3.0 - 2.0 * f);
+        return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+      }
+
+      float fbm(vec2 st) {
+        float v = 0.0;
+        float a = 0.5;
+        vec2 shift = vec2(100.0);
+        mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+        for (int i = 0; i < 5; ++i) {
+          v += a * noise(st);
+          st = rot * st * 2.0 + shift;
+          a *= 0.5;
+        }
+        return v;
+      }
+
+      void main() {
+        vec2 st = gl_FragCoord.xy / u_resolution.xy;
+        st.x *= u_resolution.x / u_resolution.y;
+        float scale = 80.0;
+        vec2 grid_st = floor(st * scale);
+        vec2 local_st = fract(st * scale) - 0.5;
+        vec2 flow = vec2(u_time * 0.02, u_time * 0.015);
+        float height = fbm(grid_st * 0.05 + flow);
+        float bands = floor(height * 8.0) / 8.0;
+        float max_radius = 0.45;
+        float radius = bands * max_radius;
+        float dist = length(local_st);
+        float shape = step(dist, radius);
+        float scanline = sin(gl_FragCoord.y * 1.5 - u_time * 10.0) * 0.04;
+        float final_shape = step(dist, radius + scanline);
+        vec3 final_color = mix(u_color_bg, u_color_accent, final_shape);
+        float highlight = step(dist, radius * 0.3) * step(0.6, bands);
+        final_color = mix(final_color, u_color_fg, highlight * final_shape);
+        float static_noise = random(gl_FragCoord.xy * u_time * 0.001) * 0.03;
+        final_color += static_noise * (1.0 - final_shape);
+        gl_FragColor = vec4(final_color, 1.0);
+      }
+    `;
+
+    const articleFs = `
+      precision highp float;
+      uniform vec2 u_resolution;
+      uniform float u_time;
+      uniform vec3 u_color_bg;
+      uniform vec3 u_color_accent;
+
+      float random(vec2 st) {
+        return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+      }
+
+      float noise(vec2 st) {
+        vec2 i = floor(st);
+        vec2 f = fract(st);
+        float a = random(i);
+        float b = random(i + vec2(1.0, 0.0));
+        float c = random(i + vec2(0.0, 1.0));
+        float d = random(i + vec2(1.0, 1.0));
+        vec2 u = f * f * (3.0 - 2.0 * f);
+        return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+      }
+
+      float fbm(vec2 st) {
+        float v = 0.0;
+        float a = 0.5;
+        vec2 shift = vec2(100.0);
+        mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+        for (int i = 0; i < 5; ++i) {
+          v += a * noise(st);
+          st = rot * st * 2.0 + shift;
+          a *= 0.5;
+        }
+        return v;
+      }
+
+      void main() {
+        vec2 st = gl_FragCoord.xy / u_resolution.xy;
+        st.x *= u_resolution.x / u_resolution.y;
+        float scale = 60.0;
+        vec2 grid_st = floor(st * scale);
+        vec2 local_st = fract(st * scale) - 0.5;
+        float height = fbm(grid_st * 0.05 + vec2(u_time * 0.01));
+        float bands = floor(height * 6.0) / 6.0;
+        float shape = step(length(local_st), bands * 0.45);
+        vec3 final_color = mix(u_color_bg, u_color_accent, shape);
+        gl_FragColor = vec4(final_color, 1.0);
+      }
+    `;
+
+    const fsSource = variant === 'index' ? indexFs : articleFs;
+
+    function compileShader(type, source) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
+
+    const vs = compileShader(gl.VERTEX_SHADER, vsSource);
+    const fs = compileShader(gl.FRAGMENT_SHADER, fsSource);
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+
+    const posLoc = gl.getAttribLocation(program, 'aVertexPosition');
+    const resLoc = gl.getUniformLocation(program, 'u_resolution');
+    const timeLoc = gl.getUniformLocation(program, 'u_time');
+    const bgLoc = gl.getUniformLocation(program, 'u_color_bg');
+    const fgLoc = gl.getUniformLocation(program, 'u_color_fg');
+    const accentLoc = gl.getUniformLocation(program, 'u_color_accent');
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,1,1,-1,-1,1,-1]), gl.STATIC_DRAW);
+
+    function hexToRgb(hex) {
+      return [
+        parseInt(hex.substring(1,3), 16) / 255,
+        parseInt(hex.substring(3,5), 16) / 255,
+        parseInt(hex.substring(5,7), 16) / 255,
+      ];
+    }
+
+    const style = getComputedStyle(document.documentElement);
+    const bgRgb = hexToRgb(style.getPropertyValue('--c-bg').trim());
+    const fgRgb = hexToRgb(style.getPropertyValue('--c-fg').trim());
+    const accentRgb = hexToRgb(style.getPropertyValue('--c-border').trim());
+
+    const startTime = Date.now();
+    let isVisible = true;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
+    function render() {
+      if (isVisible) {
+        if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
+          canvas.width = canvas.clientWidth;
+          canvas.height = canvas.clientHeight;
+        }
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.useProgram(program);
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(posLoc);
+        gl.uniform2f(resLoc, canvas.width, canvas.height);
+        gl.uniform1f(timeLoc, (Date.now() - startTime) / 1000.0);
+        gl.uniform3fv(bgLoc, bgRgb);
+        if (fgLoc) gl.uniform3fv(fgLoc, fgRgb);
+        if (accentLoc) gl.uniform3fv(accentLoc, accentRgb);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      requestAnimationFrame(render);
+    }
+    render();
+  } else if (canvas) {
+    canvas.classList.add('no-webgl');
+  }
+</script>
+
+<style>
+  .webgl-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .gl-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .gl-canvas.no-webgl {
+    background-image: radial-gradient(circle, var(--c-fg) 1px, transparent 1px);
+    background-size: 8px 8px;
+    opacity: 0.15;
+  }
+</style>

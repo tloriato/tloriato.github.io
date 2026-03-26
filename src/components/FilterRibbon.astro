@@ -1,0 +1,76 @@
+---
+interface Props {
+  categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+<div class="filter-ribbon">
+  <button class="filter-tag active" data-filter="all">ALL</button>
+  {categories.map((cat) => (
+    <button class="filter-tag" data-filter={cat}>
+      {cat.toUpperCase()}
+    </button>
+  ))}
+</div>
+
+<script>
+  const ribbon = document.querySelector('.filter-ribbon');
+  if (ribbon) {
+    ribbon.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.classList.contains('filter-tag')) return;
+
+      const filter = target.dataset.filter;
+
+      ribbon.querySelectorAll('.filter-tag').forEach((tag) => {
+        tag.classList.remove('active');
+      });
+      target.classList.add('active');
+
+      document.querySelectorAll('[data-category]').forEach((section) => {
+        const el = section as HTMLElement;
+        if (filter === 'all' || el.dataset.category === filter) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  .filter-ribbon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-sm);
+    padding: var(--sp-md) var(--sp-lg);
+    border-bottom: var(--border-width) solid var(--c-border);
+    background: var(--c-bg);
+  }
+
+  .filter-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border: var(--border-width) solid var(--c-fg-muted);
+    color: var(--c-fg-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+  }
+
+  .filter-tag:hover,
+  .filter-tag.active {
+    border-color: var(--c-fg);
+    color: var(--c-fg);
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .filter-tag.active::before {
+    content: '\25CF ';
+    font-size: 8px;
+    vertical-align: middle;
+  }
+</style>

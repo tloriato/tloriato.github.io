@@ -1,0 +1,68 @@
+---
+interface Props {
+  href: string;
+  date: Date;
+  title: string;
+  abstract: string;
+}
+
+const { href, date, title, abstract } = Astro.props;
+
+const year = date.getFullYear();
+---
+<a href={href} class="entry-item">
+  <span class="entry-date">{year}</span>
+  <div class="entry-details">
+    <h2 class="entry-title">{title}</h2>
+    <p class="entry-abstract">{abstract}</p>
+  </div>
+</a>
+
+<style>
+  .entry-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: var(--sp-md);
+    padding: var(--sp-lg);
+    border-bottom: var(--border-width) solid var(--c-border);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+    align-items: flex-start;
+  }
+
+  .entry-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .entry-date {
+    font-size: 11px;
+    color: var(--c-fg-muted);
+    margin-top: 4px;
+  }
+
+  .entry-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+
+  .entry-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 400;
+    color: var(--c-fg);
+  }
+
+  .entry-abstract {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-fg-muted);
+    max-width: 90%;
+    line-height: 1.5;
+  }
+</style>

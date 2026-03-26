@@ -1,0 +1,38 @@
+---
+interface Props {
+  caption: string;
+  detail?: string;
+}
+
+const { caption, detail } = Astro.props;
+---
+<div class="graphic-overlay">
+  <div class="graphic-caption">{caption}</div>
+  {detail && <div class="graphic-caption detail">{detail}</div>}
+</div>
+
+<style>
+  .graphic-overlay {
+    position: absolute;
+    bottom: var(--sp-lg);
+    right: var(--sp-lg);
+    background: var(--c-bg);
+    border: var(--border-width) solid var(--c-border);
+    padding: var(--sp-sm) var(--sp-md);
+    text-align: left;
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    gap: var(--sp-md);
+  }
+
+  .graphic-caption {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--c-fg);
+  }
+
+  .graphic-caption.detail {
+    color: var(--c-fg-muted);
+  }
+</style>
