@@ -4,7 +4,7 @@ interface Props {
 }
 
 const { variant } = Astro.props;
-const canvasId = `glcanvas-${variant}`;
+const canvasId = `glcanvas-${variant}-${Math.random().toString(36).slice(2, 8)}`;
 ---
 <div class="webgl-wrapper" data-variant={variant}>
   <canvas id={canvasId} class="gl-canvas"></canvas>
