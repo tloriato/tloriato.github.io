@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --c-bg: #eae6db;
+  --c-fg: #2c2a26;
+  --c-fg-muted: #8a8578;
+  --c-border: #2c2a26;
+
+  --font-serif: 'EB Garamond', serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --sp-xs: 0.25rem;
+  --sp-sm: 0.5rem;
+  --sp-md: 1rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 3rem;
+  --sp-2xl: 6rem;
+
+  --border-width: 1px;
+  --frame-padding: 1.5rem;
+  --max-text-width: 680px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  padding: var(--frame-padding);
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--c-fg);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
