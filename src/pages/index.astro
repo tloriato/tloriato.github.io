@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Index from '../layouts/Index.astro';
+import FilterRibbon from '../components/FilterRibbon.astro';
+import EntryItem from '../components/EntryItem.astro';
+
+const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const essays = allPosts.filter((p) => p.data.category === 'essay');
+const projects = allPosts.filter((p) => p.data.category === 'project');
+---
+<Index title="Tiago Loriato">
+  <FilterRibbon categories={['essays', 'projects']} />
+
+  <section data-category="essays">
+    <div class="section-label">Essays</div>
+    <div class="entry-list">
+      {essays.map((post) => (
+        <EntryItem
+          href={`/${post.slug}/`}
+          date={post.data.date}
+          title={post.data.title}
+          abstract={post.data.description}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section data-category="projects">
+    <div class="section-label">Projects</div>
+    <div class="entry-list">
+      {projects.map((post) => (
+        <EntryItem
+          href={`/${post.slug}/`}
+          date={post.data.date}
+          title={post.data.title}
+          abstract={post.data.description}
+        />
+      ))}
+    </div>
+  </section>
+</Index>
+
+<style>
+  .section-label {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--c-fg);
+    padding: var(--sp-xl) var(--sp-lg);
+    margin: 0;
+    border-bottom: var(--border-width) solid var(--c-border);
+    background: var(--c-bg);
+  }
+
+  .entry-list {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
