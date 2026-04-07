@@ -61,6 +61,12 @@ const { title, description } = Astro.props;
       // First click: animate the burn reveal
       const wrapper = graphicPanel.querySelector('.webgl-wrapper');
       if (wrapper) {
+        // Let clicks/scroll pass through to reader panel immediately
+        graphicPanel.style.pointerEvents = 'none';
+        // Fade out the legend overlay
+        const overlay = graphicPanel.querySelector('.graphic-overlay') as HTMLElement;
+        if (overlay) overlay.style.opacity = '0';
+
         wrapper.addEventListener('reveal-complete', () => {
           graphicPanel.style.display = 'none';
         }, { once: true });

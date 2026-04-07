@@ -1,12 +1,683 @@
 ---
-import Article from '../layouts/Article.astro';
+import Shell from '../layouts/Shell.astro';
+import WebGLCanvas from '../components/WebGLCanvas.astro';
+import books from '../data/books.json';
+import shows from '../data/shows.json';
 ---
-<Article title="About" description="About Tiago Loriato">
-  <p>Hi friends! My name is Tiago Loriato, and welcome to my website!</p>
+<Shell title="About" backLink pageTitle="About">
+  <div class="scroll-container">
+    <div class="grid-container">
+      <div class="grid">
+        <!-- cursor coordinate readout -->
+        <div class="coord-readout" id="coord-readout">
+          [X: <span id="coord-x">000</span>, Y: <span id="coord-y">000</span>]
+        </div>
 
-  <h2>Background</h2>
-  <p>Tiago Loriato</p>
+        <!-- catalog -->
+        <div class="cell cell-catalog" style="grid-area: catalog; animation-delay: 0ms;">
+          <span class="label">SPECIMEN CATALOG / NO. 001</span>
+        </div>
 
-  <h2>Contact</h2>
-  <p><strong>Tiago Loriato</strong></p>
-</Article>
+        <!-- swatch1: 2x2 WebGL block -->
+        <div class="cell cell-swatch cell-swatch1" style="grid-area: swatch1; animation-delay: 50ms;">
+          <div class="swatch-inner swatch-inner-lg">
+            <WebGLCanvas variant="article" />
+          </div>
+        </div>
+
+        <!-- status -->
+        <div class="cell cell-status" style="grid-area: status; animation-delay: 90ms;">
+          <span class="label">STATUS</span>
+          <span class="value">Active</span>
+        </div>
+
+        <!-- name -->
+        <div class="cell cell-name" style="grid-area: name; animation-delay: 80ms;">
+          <span class="label">NAME</span>
+          <span class="value value-serif value-name">Tiago Loriato</span>
+        </div>
+
+        <!-- origin -->
+        <div class="cell cell-origin" style="grid-area: origin; animation-delay: 140ms;">
+          <span class="label">PROVENANCE</span>
+          <span class="value">Rio, Brazil &rarr; London, UK </br> Dreaming about Madrid.</span>
+        </div>
+
+        <!-- notes: main prose block, 3 cols x 3 rows -->
+        <div class="cell cell-notes" style="grid-area: notes; animation-delay: 200ms;">
+          <span class="label">NOTES</span>
+          <p class="prose">
+            I'm obsessed with building. Not shipping — making something exist that didn't
+            before. Understanding how things stand up, and then standing something new up
+            myself. Lego, code, companies — the material changes, the compulsion doesn't.
+          </p>
+          <p class="prose">
+            The best things I've built started with someone saying "that's just how it works."
+            Beautiful systems teach you how they work just by using them — that's the standard.
+            If you have to explain it, you haven't finished building it.
+          </p>
+          <p class="prose">
+            I've done this at every scale — open source protocols, products at Teya, and now
+            from scratch with Awa. The scale changes. The question stays the same: what can I
+            make exist that doesn't yet?
+          </p>
+        </div>
+
+        <!-- role -->
+        <div class="cell cell-role" style="grid-area: role; animation-delay: 280ms;">
+          <span class="label">CURRENT</span>
+          <span class="value">Product Engineering & Co-Founder @ Awa</span>
+        </div>
+
+        <!-- tools -->
+        <div class="cell cell-tools" style="grid-area: tools; animation-delay: 320ms;">
+          <span class="label">INSTRUMENTS</span>
+          <span class="value value-list">LLMs mostly. When forced to type: Go with joy, TypeScript with discipline, Python with resentment. Rust from a distance, with envy.</span>
+        </div>
+
+        <!-- reads -->
+        <div class="cell cell-reads" style="grid-area: reads; animation-delay: 360ms;">
+          <span class="label">READINGS</span>
+          <div class="book-carousel" id="book-carousel">
+            {books.map((book, i) => (
+              <div class:list={["book-slide", { active: i === 0 }]}>
+                <span class="value value-book-title">{book.title}</span>
+                <span class="value value-book-author">&mdash; {book.author}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- swatch2: tall 2-row -->
+        <div class="cell cell-swatch cell-swatch2" style="grid-area: swatch2; animation-delay: 380ms;">
+          <div class="swatch-inner">
+            <WebGLCanvas variant="article" />
+          </div>
+        </div>
+
+        <!-- interests row -->
+        <div class="cell cell-int" style="grid-area: int1; animation-delay: 420ms;">
+          <span class="label">INT.01</span>
+          <span class="value">Cryptography</span>
+        </div>
+
+        <div class="cell cell-int" style="grid-area: int2; animation-delay: 460ms;">
+          <span class="label">INT.02</span>
+          <span class="value">AI</span>
+        </div>
+
+        <div class="cell cell-int" style="grid-area: int3; animation-delay: 500ms;">
+          <span class="label">INT.03</span>
+          <span class="value">Proc. Gen. — Minecraft, but make it academic</span>
+        </div>
+
+        <div class="cell cell-int" style="grid-area: int4; animation-delay: 540ms;">
+          <span class="label">INT.04</span>
+          <span class="value">Vexillology</span>
+        </div>
+
+        <div class="cell cell-int cell-shows" style="grid-area: int5; animation-delay: 580ms;">
+          <span class="label">WATCHING</span>
+          <div class="show-carousel" id="show-carousel">
+            {shows.favourites.map((name, i) => (
+              <div class:list={["show-slide", { active: i === 0 }]}>
+                <span class="value">{name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- belief -->
+        <div class="cell cell-belief" style="grid-area: belief; animation-delay: 640ms;">
+          <span class="label">FIELD NOTE</span>
+          <p class="belief-text">The shoemaker honours God not by putting crosses on his shoes, but by making excellent shoes.</p>
+        </div>
+
+        <!-- signal -->
+        <div class="cell cell-signal" style="grid-area: signal; animation-delay: 700ms;">
+          <span class="label">SIGNAL</span>
+          <span class="value"><a href="https://github.com/tloriato" target="_blank" rel="noopener">github.com/tloriato</a></span>
+          <span class="value"><a href="https://twitter.com/tloriato_" target="_blank" rel="noopener">@tloriato_</a></span>
+        </div>
+
+        <!-- coord -->
+        <div class="cell cell-coord" style="grid-area: coord; animation-delay: 760ms;">
+          <span class="label">COORD.</span>
+          <span class="value">0.0000&deg; N, 0.0000&deg; E</span>
+        </div>
+
+        <!-- updated -->
+        <div class="cell cell-updated" style="grid-area: updated; animation-delay: 800ms;">
+          <span class="label">UPDATED</span>
+          <span class="value">2026-04-07</span>
+        </div>
+
+        <!-- lang -->
+        <div class="cell cell-lang" style="grid-area: lang; animation-delay: 840ms;">
+          <span class="label">LANGUAGES</span>
+          <span class="value value-list">Portuguese · English · Spanish</span>
+        </div>
+
+
+      </div>
+
+      <!-- tape: archival timeline running along right edge -->
+      <div class="tape-strip">
+        <div class="sprocket-track"></div>
+        <div class="tape-event" style="top: 5%;">
+          <div class="tape-hole"></div>
+          <div class="tape-line"></div>
+          <div class="tape-label"><span class="tape-year">2015</span><span class="tape-name">FIRST GITHUB COMMIT</span></div>
+        </div>
+        <div class="tape-event" style="top: 13%;">
+          <div class="tape-hole"></div>
+          <div class="tape-line"></div>
+          <div class="tape-label"><span class="tape-year">2016</span><span class="tape-name">MEETS ETHEREUM</span></div>
+        </div>
+        <div class="tape-event" style="top: 38%;">
+          <div class="tape-hole"></div>
+          <div class="tape-line"></div>
+          <div class="tape-label"><span class="tape-year">2019</span><span class="tape-name">MOVES TO LONDON</span></div>
+        </div>
+        <div class="tape-event" style="top: 79%;">
+          <div class="tape-hole"></div>
+          <div class="tape-line"></div>
+          <div class="tape-label"><span class="tape-year">2024</span><span class="tape-name">MARRIES &lt;3</span></div>
+        </div>
+        <div class="tape-event" style="top: 95%;">
+          <div class="tape-hole"></div>
+          <div class="tape-line"></div>
+          <div class="tape-label"><span class="tape-year">2026</span><span class="tape-name">LEAVES TEYA &amp; STARTS AWA</span></div>
+        </div>
+      </div>
+
+      <!-- easter egg: overlay, hidden until konami code -->
+      <div class="easter-overlay" id="easter-overlay">
+        <div class="easter-content">
+          <span class="label">CLASSIFIED</span>
+          <p class="belief-text">You found it. Not everything needs to be on the map.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Shell>
+
+<style>
+  .scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+
+  .grid-container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: var(--sp-sm) var(--sp-lg);
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+    gap: 0;
+    opacity: 0;
+    animation: grid-fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes grid-fade-in {
+    to { opacity: 1; }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "catalog catalog swatch1 swatch1 status  status"
+      "name    name    swatch1 swatch1 origin  origin"
+      "notes   notes   notes   role    tools   tools"
+      "notes   notes   notes   reads   reads   swatch2"
+      "notes   notes   notes   belief  belief  swatch2"
+      "int1    int2    int3    int4    int5    int5"
+      "updated lang    lang    signal  signal  coord";
+    gap: 0;
+    border-left: var(--border-width) solid var(--c-border);
+    border-top: var(--border-width) solid var(--c-border);
+  }
+
+  /* Base cell */
+  .cell {
+    border-right: var(--border-width) solid var(--c-border);
+    border-bottom: var(--border-width) solid var(--c-border);
+    padding: var(--sp-md);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs);
+    opacity: 0;
+    transform: translateY(12px);
+    animation: cell-enter 0.4s ease-out forwards;
+  }
+
+  @keyframes cell-enter {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover inversion (skip swatch cells) */
+  .cell:not(.cell-swatch):hover {
+    background: var(--c-fg);
+    color: var(--c-bg);
+  }
+
+  .cell:not(.cell-swatch):hover .label {
+    color: var(--c-bg);
+    opacity: 0.6;
+  }
+
+  .cell:not(.cell-swatch):hover .value,
+  .cell:not(.cell-swatch):hover .prose,
+  .cell:not(.cell-swatch):hover .belief-text,
+  .cell:not(.cell-swatch):hover a {
+    color: var(--c-bg);
+  }
+
+  /* Typography */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-fg-muted);
+    margin-bottom: var(--sp-xs);
+  }
+
+  .value {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--c-fg);
+  }
+
+  .value-serif {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+  }
+
+  .value-name {
+    font-size: 1.5rem;
+  }
+
+  .value-list {
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .value-book-title {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  .value-book-author {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--c-fg-muted);
+  }
+
+  .prose {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: var(--c-fg);
+  }
+
+  .prose + .prose {
+    margin-top: var(--sp-sm);
+  }
+
+  .belief-text {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--c-fg);
+  }
+
+  /* Book carousel */
+  .book-carousel {
+    position: relative;
+    height: 4em;
+    overflow: hidden;
+  }
+
+  .book-slide {
+    display: none;
+    flex-direction: column;
+    gap: var(--sp-xs);
+    animation: book-fade 0.4s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .book-slide.active {
+    display: flex;
+  }
+
+  @keyframes book-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Show carousel */
+  .show-carousel {
+    position: relative;
+    height: 1.6em;
+    overflow: hidden;
+  }
+
+  .show-slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: book-fade 0.4s ease-out;
+  }
+
+  .show-slide.active {
+    display: flex;
+  }
+
+  /* Links */
+  a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: inherit;
+    transition: color 0.2s;
+  }
+
+  /* Swatch cells */
+  .cell-swatch {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .swatch-inner {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cell-swatch1 {
+    min-height: 210px;
+  }
+
+  .cell-swatch2 {
+    min-height: 160px;
+  }
+
+
+  /* --- Tape strip (right margin timeline) --- */
+  .tape-strip {
+    position: relative;
+    width: 24px;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-left: var(--border-width) solid var(--c-border);
+    opacity: 0;
+    animation: cell-enter 0.6s ease-out 0.2s forwards;
+  }
+
+  .sprocket-track {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    width: 4px;
+    height: 100%;
+    background-image: radial-gradient(circle at center, var(--c-fg-muted) 1.2px, transparent 1.2px);
+    background-size: 4px 16px;
+    background-repeat: repeat-y;
+    opacity: 0.25;
+    animation: tape-feed 4s linear infinite;
+  }
+
+  @keyframes tape-feed {
+    from { background-position-y: 0; }
+    to { background-position-y: 16px; }
+  }
+
+  .tape-event {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .tape-hole {
+    position: absolute;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: var(--border-width) solid var(--c-border);
+    background: var(--c-bg);
+    z-index: 1;
+  }
+
+  .tape-line {
+    position: absolute;
+    left: 4px;
+    width: 20px;
+    border-top: var(--border-width) solid var(--c-fg-muted);
+  }
+
+  .tape-label {
+    position: absolute;
+    left: calc(24px + 8px);
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    transform: translateY(-1px);
+  }
+
+  .tape-year {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--c-fg);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+
+  .tape-name {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--c-fg-muted);
+    line-height: 1.2;
+  }
+
+  /* Coordinate readout */
+  .grid {
+    position: relative;
+  }
+
+  .coord-readout {
+    position: absolute;
+    top: var(--sp-sm);
+    right: var(--sp-sm);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--c-fg-muted);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .grid-container:hover .coord-readout {
+    opacity: 1;
+  }
+
+  /* Easter egg overlay */
+  .easter-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: var(--c-fg);
+    color: var(--c-bg);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: easter-fade 0.6s ease-out forwards;
+  }
+
+  .easter-overlay .label {
+    color: var(--c-bg);
+    opacity: 0.6;
+  }
+
+  .easter-overlay .belief-text {
+    color: var(--c-bg);
+  }
+
+  .easter-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs);
+    padding: var(--sp-xl);
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .easter-active {
+    display: flex;
+  }
+
+  @keyframes easter-fade {
+    to { opacity: 1; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cell {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .grid-container {
+      opacity: 1;
+      animation: none;
+    }
+
+    .tape-strip {
+      opacity: 1;
+      animation: none;
+    }
+
+    .sprocket-track {
+      animation: none;
+    }
+  }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 1023px) {
+    .grid-container {
+      padding: var(--sp-md);
+    }
+
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "catalog catalog"
+        "name    name"
+        "origin  status"
+        "notes   notes"
+        "notes   notes"
+        "notes   notes"
+        "role    tools"
+        "reads   reads"
+        "belief  belief"
+        "int1    int2"
+        "int3    int4"
+        "int5    lang"
+        "signal  signal"
+        "coord   updated";
+    }
+
+    .tape-strip {
+      display: none;
+    }
+
+    .cell-swatch {
+      display: none;
+    }
+
+    .coord-readout {
+      display: none;
+    }
+
+    .cell {
+      padding: var(--sp-sm);
+    }
+  }
+</style>
+
+<script>
+  const grid = document.querySelector('.grid') as HTMLElement;
+  const gridContainer = document.querySelector('.grid-container') as HTMLElement;
+  const coordX = document.getElementById('coord-x');
+  const coordY = document.getElementById('coord-y');
+
+  // Cursor coordinate readout — (0,0) is center of grid
+  const fmt = (n: number) => (n >= 0 ? '+' : '') + String(n);
+  gridContainer?.addEventListener('mousemove', (e) => {
+    const rect = gridContainer.getBoundingClientRect();
+    const x = Math.round(e.clientX - rect.left - rect.width / 2);
+    const y = Math.round(-(e.clientY - rect.top - rect.height / 2));
+    if (coordX) coordX.textContent = fmt(x);
+    if (coordY) coordY.textContent = fmt(y);
+  });
+
+  // Book carousel — rotate every 4s
+  const slides = document.querySelectorAll('.book-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+
+  // Show carousel — rotate every 2s
+  const showSlides = document.querySelectorAll('.show-slide');
+  let currentShow = 0;
+  setInterval(() => {
+    showSlides[currentShow].classList.remove('active');
+    currentShow = (currentShow + 1) % showSlides.length;
+    showSlides[currentShow].classList.add('active');
+  }, 2000);
+
+  // Easter egg: ↑↑↓↓←→←→
+  const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight'];
+  let konamiIndex = 0;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === konami[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === konami.length) {
+        document.getElementById('easter-overlay')?.classList.add('easter-active');
+        konamiIndex = 0;
+      }
+    } else {
+      konamiIndex = 0;
+    }
+  });
+</script>
