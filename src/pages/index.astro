@@ -23,7 +23,7 @@ const rendered = await Promise.all(
 <Index title="Tiago Loriato">
   <section>
     <div class="section-label">Essays</div>
-    <div class="entry-list">
+    <div class="entry-list entry-list-essays">
       {essays.map((post) => (
         <EntryItem
           href={`/${post.id}/`}
@@ -37,7 +37,7 @@ const rendered = await Promise.all(
   </section>
 
   <section>
-    <div class="section-label">Projects</div>
+    <div class="section-label">Research & Projects</div>
     <div class="entry-list">
       {projects.map((post) => (
         <EntryItem
@@ -80,9 +80,22 @@ const rendered = await Promise.all(
     text-wrap: balance;
   }
 
+  .entry-list-essays {
+    border-bottom: var(--border-width) solid var(--c-border);
+  }
+
+  .entry-list-essays > :last-child {
+    border-bottom: none;
+  }
+
   .entry-list {
     display: flex;
     flex-direction: column;
+  }
+
+  .entry-list-essays {
+    max-height: 24.5rem;
+    overflow-y: auto;
   }
 
   /* Reader panel styles */
